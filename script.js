@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const foundRecipeKeys = Object.keys(recipes).filter(key =>
             recipes[key].title.toLowerCase().includes(searchTerm) ||
             recipes[key].category.toLowerCase().includes(searchTerm) ||
-            recipes[key].ingredients.some(ing => ing.toLowerCase().includes(searchTerm)) // Busca também nos ingredientes
+            recipes[key].ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
         );
 
         if (foundRecipeKeys.length > 0) {
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             html += `</div>`;
         } else {
-            html = `<p>Nenhuma receita encontrada para esta pesquisa.</p>`; // fallback, should not be hit if recipeKeys is empty
+            html = `<p>Nenhuma receita encontrada para esta pesquisa.</p>`;
         }
         mainContent.innerHTML = html;
         addRecipeButtonClickListeners(); // Re-adiciona listeners para os novos botões
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ol>
                         ${instructionsHtml}
                     </ol>
-                    <button class="back-button" onclick="window.history.back()">Voltar</button>
+                    <button class="back-button" onclick="loadHomePage()">Voltar</button>
                 </div>
             `;
         } else {
@@ -371,7 +371,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Carregar Receitas por Categoria ---
     function loadRecipesByCategory(category) {
         const filteredRecipes = Object.keys(recipes).filter(key => recipes[key].category === category);
-        const categoryDisplayName = event.target.textContent; // Pega o texto do link da categoria clicada
+        // O texto do link da categoria clicada será o título da seção
+        const categoryDisplayName = event.target.textContent;
 
         let html = `<h2>Receitas de ${categoryDisplayName}</h2><div class="home-buttons-grid">`;
 
