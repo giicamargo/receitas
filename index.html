@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QueroMais - Receitas</title>
+    <title>QueroMais - Receitas Elegantes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="https://via.placeholder.com/30" alt="Logo Talheres"> <h1>QueroMais</h1>
-            <button id="homeButton" class="home-button">Home</button>
+            <button id="homeButton" class="icon-button">🏡 Home</button>
+            <h1>QueroMais</h1>
         </div>
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Pesquisar">
-            <button id="searchButton">Pesquisar</button>
+            <input type="text" id="searchInput" placeholder="Pesquisar receita...">
+            <button id="searchButton" class="search-btn">Pesquisar</button>
         </div>
         <button id="menuButton" class="menu-button">Menu</button>
     </header>
@@ -23,43 +23,25 @@
         <aside id="categoryMenu" class="category-menu">
             <h3>Categorias</h3>
             <ul>
-                <li><a href="#" data-category="boloscake">Bolos</a></li>
-                <li><a href="#" data-category="sopassoup">Sopas</a></li>
-                <li><a href="#" data-category="bebidasdrinks">Bebidas quentes</a></li>
-                <li><a href="#" data-category="salgadossnacks">Salgados</a></li>
-                <li><a href="#" data-category="cafedamanhabreakfast">Café da manhã</a></li>
-                <li><a href="#" data-category="alimentacaosaudavelhealthy">Alimentação saudável</a></li>
+                <li><a href="#" data-category="bolos">Bolos</a></li>
+                <li><a href="#" data-category="sopas">Sopas</a></li>
+                <li><a href="#" data-category="bebidas">Bebidas quentes</a></li>
+                <li><a href="#" data-category="salgados">Salgados</a></li>
+                <li><a href="#" data-category="cafe_da_manha">Café da manhã</a></li>
+                <li><a href="#" data-category="alimentacao_saudavel">Alimentação saudável</a></li>
             </ul>
         </aside>
 
         <main id="mainContent" class="main-content">
             <h2>Bem-vindo ao QueroMais Receitas!</h2>
-            <p>Explore nossas deliciosas receitas por categoria ou use a barra de pesquisa.</p>
-            <div class="home-grid">
-                <div class="home-item" data-recipe="bolo-chocolate">
-                    <img src="https://via.placeholder.com/200x150?text=Bolo+de+Chocolate" alt="Bolo de Chocolate">
-                    <p>Bolo de Chocolate</p>
-                </div>
-                <div class="home-item" data-recipe="sopa-legumes">
-                    <img src="https://via.placeholder.com/200x150?text=Sopa+de+Legumes" alt="Sopa de Legumes">
-                    <p>Sopa de Legumes</p>
-                </div>
-                <div class="home-item" data-recipe="cha-ervas">
-                    <img src="https://via.placeholder.com/200x150?text=Chá+de+Ervas" alt="Chá de Ervas">
-                    <p>Chá de Ervas</p>
-                </div>
-                <div class="home-item" data-recipe="pao-queijo">
-                    <img src="https://via.placeholder.com/200x150?text=Pão+de+Queijo" alt="Pão de Queijo">
-                    <p>Pão de Queijo</p>
-                </div>
-                <div class="home-item" data-recipe="ovos-mexidos">
-                    <img src="https://via.placeholder.com/200x150?text=Ovos+Mexidos" alt="Ovos Mexidos">
-                    <p>Ovos Mexidos</p>
-                </div>
-                <div class="home-item" data-recipe="salada-frutas">
-                    <img src="https://via.placeholder.com/200x150?text=Salada+de+Frutas" alt="Salada de Frutas">
-                    <p>Salada de Frutas</p>
-                </div>
+            <p>Descubra uma coleção de receitas deliciosas e fáceis de preparar.</p>
+            <div class="home-buttons-grid">
+                <button class="food-button" data-recipe="bolo-chocolate">Bolo de Chocolate</button>
+                <button class="food-button" data-recipe="sopa-legumes">Sopa de Legumes</button>
+                <button class="food-button" data-recipe="cha-ervas">Chá de Ervas</button>
+                <button class="food-button" data-recipe="pao-queijo">Pão de Queijo</button>
+                <button class="food-button" data-recipe="ovos-mexidos">Ovos Mexidos</button>
+                <button class="food-button" data-recipe="salada-frutas">Salada de Frutas</button>
             </div>
         </main>
     </div>

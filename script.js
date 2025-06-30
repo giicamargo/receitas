@@ -9,125 +9,127 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Data for recipes (simulate a database) ---
     const recipes = {
         'bolo-chocolate': {
-            title: 'Bolo de Chocolate Delicioso',
-            category: 'boloscake',
-            image: 'https://via.placeholder.com/400x300?text=Bolo+de+Chocolate+Pronto',
+            title: 'Bolo de Chocolate Elegante',
+            category: 'bolos',
             ingredients: [
                 '2 xícaras de farinha de trigo',
                 '1 xícara de açúcar',
-                '3 ovos',
-                '1/2 xícara de chocolate em pó',
-                '1 xícara de leite',
-                '1/2 xícara de óleo',
+                '3 ovos grandes',
+                '1/2 xícara de chocolate em pó 50%',
+                '1 xícara de leite integral',
+                '1/2 xícara de óleo vegetal',
                 '1 colher de sopa de fermento em pó',
-                'Pitada de sal'
+                'Pitada de sal fino'
             ],
             instructions: [
-                'Em uma tigela, bata os ovos, açúcar e óleo.',
-                'Adicione a farinha, chocolate em pó e sal. Misture bem.',
-                'Acrescente o leite e o fermento, misturando delicadamente.',
-                'Despeje em uma forma untada e enfarinhada.',
-                'Asse em forno pré-aquecido a 180°C por 35-40 minutos.',
-                'Deixe esfriar e sirva.'
+                'Pré-aqueça o forno a 180°C. Unte e enfarinhe uma forma de 24cm.',
+                'Em uma tigela grande, peneire a farinha, o açúcar, o chocolate em pó e o sal. Misture bem.',
+                'Em outra tigela, bata os ovos, o leite e o óleo até incorporar.',
+                'Despeje os líquidos sobre os ingredientes secos e misture delicadamente com um fouet ou espátula até obter uma massa homogênea.',
+                'Por último, adicione o fermento em pó e misture suavemente apenas para incorporar.',
+                'Despeje a massa na forma preparada e leve ao forno por aproximadamente 35-45 minutos, ou até que um palito inserido no centro saia limpo.',
+                'Retire do forno, espere amornar para desenformar e sirva simples ou com uma cobertura de sua preferência.'
             ]
         },
         'sopa-legumes': {
-            title: 'Sopa de Legumes Nutritiva',
-            category: 'sopassoup',
-            image: 'https://via.placeholder.com/400x300?text=Sopa+de+Legumes+Pronta',
+            title: 'Sopa de Legumes Cremosa',
+            category: 'sopas',
             ingredients: [
-                '1 cenoura picada',
-                '1 batata picada',
-                '1/2 xícara de ervilhas',
-                '1/2 xícara de vagem picada',
-                '1 cebola pequena picada',
+                '1 cebola média picada',
                 '2 dentes de alho amassados',
-                '1 litro de caldo de legumes',
-                'Sal e pimenta a gosto',
-                'Azeite para refogar'
+                '2 batatas médias picadas',
+                '1 cenoura grande picada',
+                '1 abobrinha pequena picada',
+                '1/2 xícara de vagem picada',
+                '1 litro de caldo de legumes caseiro (ou água)',
+                '2 colheres de sopa de azeite de oliva',
+                'Sal e pimenta do reino a gosto',
+                'Salsinha picada para finalizar'
             ],
             instructions: [
-                'Em uma panela grande, refogue a cebola e o alho no azeite.',
-                'Adicione os legumes picados e refogue por mais alguns minutos.',
-                'Despeje o caldo de legumes, tempere com sal e pimenta.',
-                'Cozinhe até que os legumes estejam macios.',
-                'Sirva quente, se desejar, com cheiro-verde picado.'
+                'Em uma panela grande, aqueça o azeite em fogo médio. Refogue a cebola até ficar transparente e, em seguida, adicione o alho, refogando por mais 1 minuto.',
+                'Adicione todos os legumes picados à panela e refogue por cerca de 5 minutos, mexendo ocasionalmente.',
+                'Despeje o caldo de legumes (ou água), tempere com sal e pimenta. Aumente o fogo e, assim que ferver, reduza para médio-baixo e cozinhe com a panela semi-tampada até que os legumes estejam bem macios (cerca de 20-25 minutos).',
+                'Com um mixer de mão ou liquidificador, bata parte ou toda a sopa até atingir a cremosidade desejada. Se usar liquidificador, bata em partes e com cuidado, pois o vapor pode causar pressão.',
+                'Ajuste o tempero se necessário. Sirva quente, finalizando com salsinha fresca picada.'
             ]
         },
         'cha-ervas': {
-            title: 'Chá de Ervas Relaxante',
-            category: 'bebidasdrinks',
-            image: 'https://via.placeholder.com/400x300?text=Chá+de+Ervas+Pronto',
+            title: 'Chá de Ervas Aromático',
+            category: 'bebidas',
             ingredients: [
-                '1 saquinho de chá de camomila ou erva-cidreira',
-                '200 ml de água quente',
-                'Mel ou adoçante a gosto (opcional)'
+                '1 colher de sopa de folhas secas de camomila ou erva-cidreira',
+                '250 ml de água filtrada',
+                'Mel ou rodela de limão para servir (opcional)'
             ],
             instructions: [
-                'Ferva a água.',
-                'Em uma xícara, coloque o saquinho de chá.',
-                'Despeje a água quente sobre o saquinho.',
-                'Deixe em infusão por 3-5 minutos.',
-                'Retire o saquinho, adoce se desejar e sirva.'
+                'Ferva a água em uma chaleira ou panela.',
+                'Em uma xícara ou bule, coloque as folhas secas da erva de sua preferência.',
+                'Despeje a água fervente sobre as ervas.',
+                'Cubra e deixe em infusão por 5 a 7 minutos para que as propriedades e o aroma se liberem.',
+                'Coa o chá para remover as folhas.',
+                'Sirva quente, adicionando mel ou uma rodela de limão se desejar.'
             ]
         },
         'pao-queijo': {
-            title: 'Pão de Queijo Mineiro',
-            category: 'salgadossnacks',
-            image: 'https://via.placeholder.com/400x300?text=Pão+de+Queijo+Pronto',
+            title: 'Pão de Queijo Cremoso',
+            category: 'salgados',
             ingredients: [
                 '500g de polvilho doce',
                 '250ml de leite',
                 '150ml de óleo',
-                '200g de queijo minas curado ralado',
-                '3 ovos',
-                'Sal a gosto'
+                '2 ovos grandes',
+                '200g de queijo minas curado ralado (ou meia cura)',
+                '1 colher de chá de sal (ou a gosto)'
             ],
             instructions: [
-                'Em uma panela, ferva o leite com o óleo e o sal.',
-                'Em uma tigela grande, coloque o polvilho. Despeje a mistura quente sobre o polvilho e misture bem até escaldar.',
-                'Espere amornar e adicione os ovos, um a um, sovando a massa.',
-                'Por último, acrescente o queijo ralado e amasse até incorporar.',
-                'Faça bolinhas e coloque em uma assadeira untada.',
-                'Asse em forno pré-aquecido a 180°C por cerca de 30 minutos ou até dourar.'
+                'Em uma panela, aqueça o leite, o óleo e o sal até ferver. Desligue o fogo.',
+                'Em uma tigela grande, coloque o polvilho doce. Despeje a mistura quente da panela sobre o polvilho e mexa vigorosamente com uma colher de pau até incorporar e escaldar bem o polvilho.',
+                'Deixe a massa amornar. Em seguida, adicione os ovos, um a um, sovando bem a massa a cada adição. A massa deve ficar homogênea e um pouco pegajosa.',
+                'Por último, adicione o queijo ralado e continue sovando até que o queijo esteja completamente incorporado à massa.',
+                'Com as mãos levemente untadas, faça bolinhas do tamanho desejado e coloque-as em uma assadeira sem untar (o pão de queijo não gruda).',
+                'Asse em forno pré-aquecido a 180°C por cerca de 25-35 minutos, ou até que estejam dourados e crescidos. Sirva quentinho.'
             ]
         },
         'ovos-mexidos': {
-            title: 'Ovos Mexidos Cremosos',
-            category: 'cafedamanhabreakfast',
-            image: 'https://via.placeholder.com/400x300?text=Ovos+Mexidos+Prontos',
+            title: 'Ovos Mexidos Perfeitos',
+            category: 'cafe_da_manha',
             ingredients: [
-                '3 ovos',
-                '2 colheres de sopa de leite (ou creme de leite)',
-                'Sal e pimenta do reino a gosto',
-                '1 colher de chá de manteiga (ou azeite)'
+                '3 ovos grandes',
+                '2 colheres de sopa de leite integral (ou creme de leite)',
+                '1/2 colher de chá de manteiga sem sal',
+                'Sal e pimenta do reino moída na hora a gosto',
+                'Opcional: ciboulette picada ou queijo ralado'
             ],
             instructions: [
-                'Em uma tigela, bata os ovos com o leite, sal e pimenta.',
-                'Aqueça a manteiga em uma frigideira antiaderente em fogo médio-baixo.',
-                'Despeje os ovos batidos na frigideira.',
-                'Mexa delicadamente com uma espátula, empurrando as bordas para o centro, até os ovos ficarem cremosos (não secos).',
-                'Sirva imediatamente.'
+                'Em uma tigela, quebre os ovos. Adicione o leite, o sal e a pimenta. Bata levemente com um garfo ou fouet, apenas para misturar as gemas e claras, sem incorporar muito ar.',
+                'Aqueça uma frigideira antiaderente pequena em fogo médio-baixo. Adicione a manteiga e deixe derreter.',
+                'Despeje a mistura de ovos na frigideira. Deixe cozinhar por cerca de 30 segundos sem mexer, para formar uma base.',
+                'Com uma espátula de silicone ou madeira, comece a empurrar os ovos das bordas para o centro, dobrando-os suavemente. Continue mexendo e dobrando até os ovos atingirem a consistência desejada – cremosos e úmidos, mas não líquidos.',
+                'Retire do fogo um pouco antes de estarem totalmente prontos, pois eles continuarão cozinhando com o calor residual.',
+                'Sirva imediatamente. Se desejar, polvilhe com ciboulette picada ou queijo ralado.'
             ]
         },
         'salada-frutas': {
-            title: 'Salada de Frutas Refrescante',
-            category: 'alimentacaosaudavelhealthy',
-            image: 'https://via.placeholder.com/400x300?text=Salada+de+Frutas+Pronta',
+            title: 'Salada de Frutas Tropical',
+            category: 'alimentacao_saudavel',
             ingredients: [
-                '1 maçã picada',
-                '1 banana em rodelas',
-                '1/2 mamão picado',
-                '10 morangos fatiados',
-                '1/2 xícara de uvas sem sementes',
-                'Suco de 1 laranja'
+                '1 maçã picada em cubos',
+                '1 banana fatiada',
+                '1 xícara de melão picado',
+                '1 xícara de uvas sem sementes (cortadas ao meio)',
+                '1/2 xícara de morangos fatiados',
+                'Suco de 1 laranja média',
+                'Folhas de hortelã para decorar (opcional)'
             ],
             instructions: [
-                'Lave e pique todas as frutas.',
-                'Em uma tigela grande, misture todas as frutas picadas.',
-                'Regue com o suco de laranja.',
-                'Misture delicadamente.',
-                'Leve à geladeira por pelo menos 30 minutos antes de servir para resfriar bem.'
+                'Lave bem todas as frutas.',
+                'Descasque e pique as frutas conforme indicado, retirando sementes quando necessário.',
+                'Em uma tigela grande, combine todas as frutas picadas.',
+                'Esprema o suco da laranja sobre as frutas. O suco ajuda a manter as frutas frescas e adiciona um toque cítrico.',
+                'Misture delicadamente para que o suco cubra todas as frutas.',
+                'Leve à geladeira por pelo menos 30 minutos antes de servir para que a salada fique bem gelada e os sabores se misturem.',
+                'Sirva em taças individuais, decorando com folhas de hortelã se desejar.'
             ]
         }
     };
@@ -165,38 +167,40 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const foundRecipes = Object.keys(recipes).filter(key =>
+        const foundRecipeKeys = Object.keys(recipes).filter(key =>
             recipes[key].title.toLowerCase().includes(searchTerm) ||
             recipes[key].category.toLowerCase().includes(searchTerm) ||
             recipes[key].ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
         );
 
-        if (foundRecipes.length > 0) {
-            displaySearchResults(foundRecipes);
+        if (foundRecipeKeys.length > 0) {
+            displaySearchResults(foundRecipeKeys);
         } else {
-            mainContent.innerHTML = `<h2>Nenhuma receita encontrada para "${searchTerm}"</h2><p>Tente outro termo de pesquisa ou explore nossas categorias.</p>`;
+            mainContent.innerHTML = `
+                <h2>Nenhuma receita encontrada</h2>
+                <p>Desculpe, não encontramos nenhuma receita para "${searchTerm}".</p>
+                <p>Tente um termo diferente ou explore nossas categorias.</p>
+            `;
         }
         categoryMenu.classList.remove('active'); // Hide menu
     }
 
     function displaySearchResults(recipeKeys) {
-        let html = `<h2>Resultados da Pesquisa</h2><div class="home-grid">`;
+        let html = `<h2>Resultados da Pesquisa</h2><div class="home-buttons-grid">`;
         if (recipeKeys.length > 0) {
             recipeKeys.forEach(key => {
                 const recipe = recipes[key];
                 html += `
-                    <div class="home-item" data-recipe="${key}">
-                        <img src="${recipe.image}" alt="${recipe.title}">
-                        <p>${recipe.title}</p>
-                    </div>
+                    <button class="food-button" data-recipe="${key}">${recipe.title}</button>
                 `;
             });
             html += `</div>`;
         } else {
+            // This else block might not be strictly needed due to the outer check, but good for clarity.
             html = `<p>Nenhuma receita encontrada para esta pesquisa.</p>`;
         }
         mainContent.innerHTML = html;
-        addHomeItemClickListeners(); // Re-add listeners for newly loaded items
+        addFoodButtonClickListeners(); // Re-add listeners for newly loaded buttons
     }
 
 
@@ -210,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mainContent.innerHTML = `
                 <div class="recipe-detail">
                     <h2>${recipe.title}</h2>
-                    <img src="${recipe.image}" alt="${recipe.title}">
                     <h3>Ingredientes:</h3>
                     <ul>
                         ${ingredientsHtml}
@@ -230,16 +233,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Load Recipes by Category ---
     function loadRecipesByCategory(category) {
         const filteredRecipes = Object.keys(recipes).filter(key => recipes[key].category === category);
-        let html = `<h2>Receitas de ${category.replace(/([A-Z])/g, ' $1').trim().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h2><div class="home-grid">`;
+        const categoryName = category.replace(/_/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+        let html = `<h2>Receitas de ${categoryName}</h2><div class="home-buttons-grid">`;
 
         if (filteredRecipes.length > 0) {
             filteredRecipes.forEach(key => {
                 const recipe = recipes[key];
                 html += `
-                    <div class="home-item" data-recipe="${key}">
-                        <img src="${recipe.image}" alt="${recipe.title}">
-                        <p>${recipe.title}</p>
-                    </div>
+                    <button class="food-button" data-recipe="${key}">${recipe.title}</button>
                 `;
             });
             html += `</div>`;
@@ -247,49 +249,31 @@ document.addEventListener('DOMContentLoaded', () => {
             html = `<p>Nenhuma receita encontrada nesta categoria ainda.</p>`;
         }
         mainContent.innerHTML = html;
-        addHomeItemClickListeners(); // Re-add listeners for newly loaded items
+        addFoodButtonClickListeners(); // Re-add listeners for newly loaded buttons
     }
 
     // --- Home Page Loading ---
     function loadHomePage() {
         mainContent.innerHTML = `
             <h2>Bem-vindo ao QueroMais Receitas!</h2>
-            <p>Explore nossas deliciosas receitas por categoria ou use a barra de pesquisa.</p>
-            <div class="home-grid">
-                <div class="home-item" data-recipe="bolo-chocolate">
-                    <img src="https://via.placeholder.com/200x150?text=Bolo+de+Chocolate" alt="Bolo de Chocolate">
-                    <p>Bolo de Chocolate</p>
-                </div>
-                <div class="home-item" data-recipe="sopa-legumes">
-                    <img src="https://via.placeholder.com/200x150?text=Sopa+de+Legumes" alt="Sopa de Legumes">
-                    <p>Sopa de Legumes</p>
-                </div>
-                <div class="home-item" data-recipe="cha-ervas">
-                    <img src="https://via.placeholder.com/200x150?text=Chá+de+Ervas" alt="Chá de Ervas">
-                    <p>Chá de Ervas</p>
-                </div>
-                <div class="home-item" data-recipe="pao-queijo">
-                    <img src="https://via.placeholder.com/200x150?text=Pão+de+Queijo" alt="Pão de Queijo">
-                    <p>Pão de Queijo</p>
-                </div>
-                <div class="home-item" data-recipe="ovos-mexidos">
-                    <img src="https://via.placeholder.com/200x150?text=Ovos+Mexidos" alt="Ovos Mexidos">
-                    <p>Ovos Mexidos</p>
-                </div>
-                <div class="home-item" data-recipe="salada-frutas">
-                    <img src="https://via.placeholder.com/200x150?text=Salada+de+Frutas" alt="Salada de Frutas">
-                    <p>Salada de Frutas</p>
-                </div>
+            <p>Descubra uma coleção de receitas deliciosas e fáceis de preparar.</p>
+            <div class="home-buttons-grid">
+                <button class="food-button" data-recipe="bolo-chocolate">Bolo de Chocolate Elegante</button>
+                <button class="food-button" data-recipe="sopa-legumes">Sopa de Legumes Cremosa</button>
+                <button class="food-button" data-recipe="cha-ervas">Chá de Ervas Aromático</button>
+                <button class="food-button" data-recipe="pao-queijo">Pão de Queijo Cremoso</button>
+                <button class="food-button" data-recipe="ovos-mexidos">Ovos Mexidos Perfeitos</button>
+                <button class="food-button" data-recipe="salada-frutas">Salada de Frutas Tropical</button>
             </div>
         `;
-        addHomeItemClickListeners();
+        addFoodButtonClickListeners();
     }
 
-    // --- Add click listeners for home grid items ---
-    function addHomeItemClickListeners() {
-        document.querySelectorAll('.home-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const recipeKey = item.dataset.recipe;
+    // --- Add click listeners for home page food buttons ---
+    function addFoodButtonClickListeners() {
+        document.querySelectorAll('.food-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const recipeKey = button.dataset.recipe;
                 loadRecipe(recipeKey);
             });
         });
