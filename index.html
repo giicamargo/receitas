@@ -3,78 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QueroMais - Receitas Deliciosas</title>
+    <title>QueroMais - Receitas</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1>QueroMais</h1>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Procure uma receita, um ingrediente, um tipo de prato...">
-                <button class="btn-search">Procurar</button>
-            </div>
-            <div class="user-icon">
-                <i class="fas fa-user-circle"></i>
-            </div>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/30" alt="Logo Talheres"> <h1>QueroMais</h1>
+            <button id="homeButton" class="home-button">Home</button>
         </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Pesquisar">
+            <button id="searchButton">Pesquisar</button>
+        </div>
+        <button id="menuButton" class="menu-button">Menu</button>
     </header>
 
-    <nav class="main-nav">
-        <div class="container">
+    <div class="container">
+        <aside id="categoryMenu" class="category-menu">
+            <h3>Categorias</h3>
             <ul>
-                <li><a href="#" class="nav-item">FESTA JUNINA</a></li>
-                <li><a href="#" class="nav-item">CANAIS ESPECIAIS</a></li>
-                <li><a href="#" class="nav-item">NOTÍCIAS</a></li>
-                <li><a href="#" class="nav-item">BOLOS E TORTAS</a></li>
-                <li><a href="#" class="nav-item active" data-category="carnes">CARNES</a></li>
-                <li><a href="#" class="nav-item" data-category="aves">AVES</a></li>
-                <li><a href="#" class="nav-item" data-category="peixes-frutos-mar">PEIXES E FRUTOS DO MAR</a></li>
-                <li><a href="#" class="nav-item" data-category="saladas-molhos">SALADAS E MOLHOS</a></li>
-                <li><a href="#" class="nav-item" data-category="sopas">SOPAS</a></li>
-                <li><a href="#" class="nav-item" data-category="massas">MASSAS</a></li>
-                <li><a href="#" class="nav-item" data-category="bebidas">BEBIDAS</a></li>
-                <li><a href="#" class="nav-item" data-category="doces-sobremesas">DOCES E SOBREMESAS</a></li>
-                <li><a href="#" class="nav-item" data-category="lanches">LANCHES</a></li>
-                <li><a href="#" class="nav-item" data-category="alimentacao-saudavel">ALIMENTAÇÃO SAUDÁVEL</a></li>
-                <li><a href="#" class="nav-item" data-category="todas-receitas">TODAS AS RECEITAS</a></li>
-                <li><button class="menu-button" id="menuButton">MENU</button></li>
+                <li><a href="#" data-category="boloscake">Bolos</a></li>
+                <li><a href="#" data-category="sopassoup">Sopas</a></li>
+                <li><a href="#" data-category="bebidasdrinks">Bebidas quentes</a></li>
+                <li><a href="#" data-category="salgadossnacks">Salgados</a></li>
+                <li><a href="#" data-category="cafedamanhabreakfast">Café da manhã</a></li>
+                <li><a href="#" data-category="alimentacaosaudavelhealthy">Alimentação saudável</a></li>
             </ul>
-        </div>
-    </nav>
+        </aside>
 
-    <main class="content">
-        <div class="container">
-            <div class="sections">
-                <section class="most-searched">
-                    <h2>MAIS BUSCADAS</h2>
-                    <ul>
-                        <li>Almôndegas</li>
-                        <li>Hambúrguer caseiro</li>
-                        <li>Carne moída simples</li>
-                        <li>Feijoada</li>
-                        <li>Yakissosoba da casa</li>
-                        <li>Vaca atolada</li>
-                    </ul>
-                </section>
-
-                <section class="new-recipes">
-                    <h2>RECEITAS MAIS NOVAS</h2>
-                    <ul>
-                        <li>Picanha na Manteiga de Alho</li>
-                        <li>Hambúrguer com Bacon na Grelha</li>
-                        <li>Buraco quente com salsa e páprica doce</li>
-                    </ul>
-                </section>
-            </div>
-
-            <div class="dishes-and-recipes" id="dishesAndRecipes">
+        <main id="mainContent" class="main-content">
+            <h2>Bem-vindo ao QueroMais Receitas!</h2>
+            <p>Explore nossas deliciosas receitas por categoria ou use a barra de pesquisa.</p>
+            <div class="home-grid">
+                <div class="home-item" data-recipe="bolo-chocolate">
+                    <img src="https://via.placeholder.com/200x150?text=Bolo+de+Chocolate" alt="Bolo de Chocolate">
+                    <p>Bolo de Chocolate</p>
                 </div>
-        </div>
-    </main>
+                <div class="home-item" data-recipe="sopa-legumes">
+                    <img src="https://via.placeholder.com/200x150?text=Sopa+de+Legumes" alt="Sopa de Legumes">
+                    <p>Sopa de Legumes</p>
+                </div>
+                <div class="home-item" data-recipe="cha-ervas">
+                    <img src="https://via.placeholder.com/200x150?text=Chá+de+Ervas" alt="Chá de Ervas">
+                    <p>Chá de Ervas</p>
+                </div>
+                <div class="home-item" data-recipe="pao-queijo">
+                    <img src="https://via.placeholder.com/200x150?text=Pão+de+Queijo" alt="Pão de Queijo">
+                    <p>Pão de Queijo</p>
+                </div>
+                <div class="home-item" data-recipe="ovos-mexidos">
+                    <img src="https://via.placeholder.com/200x150?text=Ovos+Mexidos" alt="Ovos Mexidos">
+                    <p>Ovos Mexidos</p>
+                </div>
+                <div class="home-item" data-recipe="salada-frutas">
+                    <img src="https://via.placeholder.com/200x150?text=Salada+de+Frutas" alt="Salada de Frutas">
+                    <p>Salada de Frutas</p>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
