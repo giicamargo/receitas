@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueroMais - Receitas Deliciosas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>QueroMais</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Procure uma receita, um ingrediente, um tipo de prato...">
+                <button class="btn-search">Procurar</button>
+            </div>
+            <div class="user-icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#" class="nav-item">FESTA JUNINA</a></li>
+                <li><a href="#" class="nav-item">CANAIS ESPECIAIS</a></li>
+                <li><a href="#" class="nav-item">NOTÍCIAS</a></li>
+                <li><a href="#" class="nav-item">BOLOS E TORTAS</a></li>
+                <li><a href="#" class="nav-item active" data-category="carnes">CARNES</a></li>
+                <li><a href="#" class="nav-item" data-category="aves">AVES</a></li>
+                <li><a href="#" class="nav-item" data-category="peixes-frutos-mar">PEIXES E FRUTOS DO MAR</a></li>
+                <li><a href="#" class="nav-item" data-category="saladas-molhos">SALADAS E MOLHOS</a></li>
+                <li><a href="#" class="nav-item" data-category="sopas">SOPAS</a></li>
+                <li><a href="#" class="nav-item" data-category="massas">MASSAS</a></li>
+                <li><a href="#" class="nav-item" data-category="bebidas">BEBIDAS</a></li>
+                <li><a href="#" class="nav-item" data-category="doces-sobremesas">DOCES E SOBREMESAS</a></li>
+                <li><a href="#" class="nav-item" data-category="lanches">LANCHES</a></li>
+                <li><a href="#" class="nav-item" data-category="alimentacao-saudavel">ALIMENTAÇÃO SAUDÁVEL</a></li>
+                <li><a href="#" class="nav-item" data-category="todas-receitas">TODAS AS RECEITAS</a></li>
+                <li><button class="menu-button" id="menuButton">MENU</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="container">
+            <div class="sections">
+                <section class="most-searched">
+                    <h2>MAIS BUSCADAS</h2>
+                    <ul>
+                        <li>Almôndegas</li>
+                        <li>Hambúrguer caseiro</li>
+                        <li>Carne moída simples</li>
+                        <li>Feijoada</li>
+                        <li>Yakissosoba da casa</li>
+                        <li>Vaca atolada</li>
+                    </ul>
+                </section>
+
+                <section class="new-recipes">
+                    <h2>RECEITAS MAIS NOVAS</h2>
+                    <ul>
+                        <li>Picanha na Manteiga de Alho</li>
+                        <li>Hambúrguer com Bacon na Grelha</li>
+                        <li>Buraco quente com salsa e páprica doce</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="dishes-and-recipes" id="dishesAndRecipes">
+                </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
