@@ -1,423 +1,414 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.getElementById('menuButton');
-    const categoryMenu = document.getElementById('categoryMenu');
-    const mainContent = document.getElementById('mainContent');
+    const categorySidebar = document.getElementById('categorySidebar');
     const homeButton = document.getElementById('homeButton');
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
 
-    // --- Dados para as receitas (simulando um banco de dados) ---
-    // Cada receita tem um 'category' (categoria principal) e um 'title' específico.
+    // Data for recipes and categories
     const recipes = {
         // Bolos
-        'bolo-chocolate': {
-            title: 'Bolo de Chocolate Clássico',
-            category: 'bolos',
-            ingredients: [
-                '2 xícaras de farinha de trigo',
-                '1 xícara de açúcar',
-                '3 ovos grandes',
-                '1/2 xícara de chocolate em pó 50%',
-                '1 xícara de leite integral',
-                '1/2 xícara de óleo vegetal',
-                '1 colher de sopa de fermento em pó',
-                'Pitada de sal fino'
-            ],
-            instructions: [
-                'Pré-aqueça o forno a 180°C. Unte e enfarinhe uma forma de 24cm.',
-                'Em uma tigela grande, peneire a farinha, o açúcar, o chocolate em pó e o sal. Misture bem.',
-                'Em outra tigela, bata os ovos, o leite e o óleo até incorporar.',
-                'Despeje os líquidos sobre os ingredientes secos e misture delicadamente com um fouet ou espátula até obter uma massa homogênea.',
-                'Por último, adicione o fermento em pó e misture suavemente apenas para incorporar.',
-                'Despeje a massa na forma preparada e leve ao forno por aproximadamente 35-45 minutos, ou até que um palito inserido no centro saia limpo.',
-                'Retire do forno, espere amornar para desenformar e sirva simples ou com uma cobertura de sua preferência.'
-            ]
-        },
         'bolo-cenoura': {
             title: 'Bolo de Cenoura com Cobertura de Chocolate',
-            category: 'bolos',
+            category: 'Bolos',
             ingredients: [
                 '3 cenouras médias picadas',
                 '4 ovos',
-                '1 xícara de óleo',
                 '2 xícaras de açúcar',
+                '1/2 xícara de óleo',
                 '2 xícaras de farinha de trigo',
                 '1 colher de sopa de fermento em pó',
-                'Para a Cobertura: 1 lata de leite condensado, 1 colher de sopa de manteiga, 3 colheres de sopa de chocolate em pó'
+                'Para a cobertura:',
+                '1 xícara de chocolate em pó',
+                '1/2 xícara de açúcar',
+                '1/2 xícara de leite',
+                '2 colheres de sopa de manteiga'
             ],
             instructions: [
-                'No liquidificador, bata as cenouras, os ovos e o óleo até obter uma mistura homogênea.',
-                'Em uma tigela grande, despeje a mistura do liquidificador. Adicione o açúcar e a farinha de trigo peneirados, misturando bem.',
-                'Por último, acrescente o fermento e incorpore delicadamente.',
-                'Despeje a massa em uma forma untada e enfarinhada e asse em forno pré-aquecido a 180°C por cerca de 40-50 minutos, ou até dourar.',
-                'Para a cobertura: Em uma panela, misture o leite condensado, a manteiga e o chocolate em pó. Leve ao fogo baixo, mexendo sempre, até engrossar. Despeje sobre o bolo ainda quente.'
+                'No liquidificador, bata a cenoura, os ovos, o açúcar e o óleo até ficar homogêneo.',
+                'Em uma tigela, misture a farinha de trigo e o fermento.',
+                'Despeje a mistura do liquidificador na tigela e misture bem.',
+                'Despeje a massa em uma forma untada e enfarinhada e asse em forno pré-aquecido a 180°C por cerca de 35-40 minutos.',
+                'Para a cobertura: em uma panela, misture todos os ingredientes e leve ao fogo baixo, mexendo sempre até engrossar. Despeje sobre o bolo ainda quente.'
             ]
         },
-        'bolo-milho': {
-            title: 'Bolo Cremoso de Milho Verde',
-            category: 'bolos',
+        'bolo-chocolate': {
+            title: 'Bolo de Chocolate Simples',
+            category: 'Bolos',
             ingredients: [
-                '3 espigas de milho verde (ou 2 latas de milho escorrido)',
+                '3 ovos',
                 '1 xícara de açúcar',
                 '1/2 xícara de óleo',
-                '3 ovos',
-                '1/2 xícara de leite',
-                '1/2 xícara de fubá',
+                '1 xícara de leite',
+                '2 xícaras de farinha de trigo',
+                '1 xícara de chocolate em pó',
                 '1 colher de sopa de fermento em pó'
             ],
             instructions: [
-                'Debulhe o milho das espigas (ou use o milho de lata).',
-                'No liquidificador, bata o milho, o açúcar, o óleo, os ovos e o leite até ficar homogêneo.',
-                'Despeje a mistura em uma tigela, adicione o fubá e o fermento, misturando bem com uma colher.',
-                'Despeje a massa em uma forma untada e enfarinhada (ou untada com manteiga e polvilhada com fubá).',
-                'Asse em forno pré-aquecido a 180°C por cerca de 40-50 minutos, ou até que esteja firme e dourado.'
+                'Bata os ovos, açúcar e óleo no liquidificador.',
+                'Adicione o leite e bata novamente.',
+                'Em uma tigela, misture a farinha, chocolate em pó e fermento.',
+                'Despeje a mistura líquida sobre os secos e misture bem.',
+                'Leve ao forno pré-aquecido a 180°C por aproximadamente 30-40 minutos.'
             ]
         },
-
         // Sopas
         'sopa-legumes': {
             title: 'Sopa Cremosa de Legumes',
-            category: 'sopas',
+            category: 'Sopas',
             ingredients: [
-                '1 cebola média picada',
-                '2 dentes de alho amassados',
-                '2 batatas médias picadas',
-                '1 cenoura grande picada',
-                '1 abobrinha pequena picada',
-                '1/2 xícara de vagem picada',
-                '1 litro de caldo de legumes caseiro (ou água)',
-                '2 colheres de sopa de azeite de oliva',
-                'Sal e pimenta do reino a gosto',
+                '1 cebola picada',
+                '2 dentes de alho picados',
+                '2 batatas picadas',
+                '1 cenoura picada',
+                '1 abobrinha picada',
+                '1 tomate picado',
+                '1 litro de caldo de legumes',
+                'Sal e pimenta a gosto',
                 'Salsinha picada para finalizar'
             ],
             instructions: [
-                'Em uma panela grande, aqueça o azeite em fogo médio. Refogue a cebola até ficar transparente e, em seguida, adicione o alho, refogando por mais 1 minuto.',
-                'Adicione todos os legumes picados à panela e refogue por cerca de 5 minutos, mexendo ocasionalmente.',
-                'Despeje o caldo de legumes (ou água), tempere com sal e pimenta. Aumente o fogo e, assim que ferver, reduza para médio-baixo e cozinhe com a panela semi-tampada até que os legumes estejam bem macios (cerca de 20-25 minutos).',
-                'Com um mixer de mão ou liquidificador, bata parte ou toda a sopa até atingir a cremosidade desejada. Se usar liquidificador, bata em partes e com cuidado, pois o vapor pode causar pressão.',
-                'Ajuste o tempero se necessário. Sirva quente, finalizando com salsinha fresca picada.'
+                'Em uma panela, refogue a cebola e o alho em um pouco de azeite.',
+                'Adicione os legumes picados e refogue por alguns minutos.',
+                'Despeje o caldo de legumes, tempere com sal e pimenta, e cozinhe até os legumes ficarem macios.',
+                'Se desejar, bata uma parte da sopa no liquidificador para deixá-la mais cremosa. Volte para a panela e aqueça.',
+                'Sirva com salsinha picada.'
             ]
         },
-        'sopa-mandioquinha': {
-            title: 'Sopa de Mandioquinha com Carne Seca',
-            category: 'sopas',
+        'sopa-ervilha': {
+            title: 'Sopa de Ervilha com Bacon',
+            category: 'Sopas',
             ingredients: [
-                '500g de mandioquinha (batata baroa) picada',
-                '200g de carne seca desfiada e dessalgada',
+                '500g de ervilha seca',
+                '100g de bacon picado',
                 '1 cebola picada',
-                '2 dentes de alho amassados',
-                '1 litro de caldo de carne',
-                '2 colheres de sopa de azeite',
-                'Sal e cheiro-verde a gosto'
+                '2 dentes de alho picados',
+                'Caldo de carne ou legumes a gosto',
+                'Sal e pimenta do reino'
             ],
             instructions: [
-                'Em uma panela de pressão, cozinhe a carne seca já dessalgada até ficar macia. Desfie e reserve.',
-                'Na mesma panela, aqueça o azeite e refogue a cebola e o alho.',
-                'Adicione a mandioquinha picada e refogue por alguns minutos. Junte o caldo de carne e a carne seca desfiada.',
-                'Cozinhe até a mandioquinha ficar macia. Desligue o fogo e bata a sopa no liquidificador (se preferir mais cremosa, bata toda).',
-                'Volte ao fogo, ajuste o sal e sirva com cheiro-verde picado.'
+                'Deixe a ervilha de molho por pelo menos 4 horas (idealmente da noite para o dia).',
+                'Refogue o bacon em uma panela grande até ficar crocante. Retire o bacon e reserve, deixando a gordura na panela.',
+                'Na mesma panela, refogue a cebola e o alho.',
+                'Adicione a ervilha escorrida e o caldo (cobrindo a ervilha). Cozinhe até a ervilha ficar macia.',
+                'Bata no liquidificador até obter um creme. Volte para a panela, ajuste o tempero e aqueça.',
+                'Sirva com o bacon crocante por cima.'
             ]
         },
-
-        // Bebidas Quentes
-        'cha-gengibre': {
-            title: 'Chá de Gengibre Refrescante',
-            category: 'bebidas',
+        // Bebidas quentes
+        'cafe-expresso': {
+            title: 'Café Expresso Perfeito',
+            category: 'Bebidas quentes',
             ingredients: [
-                '1 pedaço de gengibre (cerca de 3cm) fatiado',
-                '500 ml de água',
-                'Mel e limão a gosto (opcional)'
+                'Grãos de café frescos e de boa qualidade',
+                'Água filtrada'
             ],
             instructions: [
-                'Em uma panela, adicione a água e as fatias de gengibre.',
-                'Leve ao fogo e deixe ferver por 5 a 10 minutos (quanto mais tempo, mais forte o sabor).',
-                'Retire do fogo, coe o chá para remover o gengibre.',
-                'Sirva quente, adicionando mel e rodelas de limão a gosto, se desejar.'
-            ]
-        },
-        'cafe-cremoso': {
-            title: 'Café Cremoso Caseiro',
-            category: 'bebidas',
-            ingredients: [
-                '1 xícara de açúcar',
-                '50g de café solúvel',
-                '1 xícara de água fervente',
-                'Leite quente para servir'
-            ],
-            instructions: [
-                'Em uma batedeira, coloque o açúcar, o café solúvel e a água fervente.',
-                'Bata em velocidade alta por cerca de 8 a 10 minutos, ou até obter um creme claro e volumoso.',
-                'Guarde o creme em um pote fechado na geladeira por até 10 dias ou no freezer por mais tempo.',
-                'Para servir, coloque 2 colheres de sopa do creme em uma xícara e adicione leite quente, misturando bem.'
-            ]
-        },
-
-        // Salgados
-        'pao-queijo': {
-            title: 'Pão de Queijo Tradicional Mineiro',
-            category: 'salgados',
-            ingredients: [
-                '500g de polvilho doce',
-                '250ml de leite',
-                '150ml de óleo',
-                '2 ovos grandes',
-                '200g de queijo minas curado ralado (ou meia cura)',
-                '1 colher de chá de sal (ou a gosto)'
-            ],
-            instructions: [
-                'Em uma panela, aqueça o leite, o óleo e o sal até ferver. Desligue o fogo.',
-                'Em uma tigela grande, coloque o polvilho doce. Despeje a mistura quente da panela sobre o polvilho e mexa vigorosamente com uma colher de pau até incorporar e escaldar bem o polvilho.',
-                'Deixe a massa amornar. Em seguida, adicione os ovos, um a um, sovando bem a massa a cada adição. A massa deve ficar homogênea e um pouco pegajosa.',
-                'Por último, adicione o queijo ralado e continue sovando até que o queijo esteja completamente incorporado à massa.',
-                'Com as mãos levemente untadas, faça bolinhas do tamanho desejado e coloque-as em uma assadeira sem untar (o pão de queijo não gruda).',
-                'Asse em forno pré-aquecido a 180°C por cerca de 25-35 minutos, ou até que estejam dourados e crescidos. Sirva quentinho.'
-            ]
-        },
-        'coxinha-frango': {
-            title: 'Coxinha de Frango com Requeijão',
-            category: 'salgados',
-            ingredients: [
-                'Massa: 2 xícaras de farinha de trigo, 2 xícaras de caldo de frango, 2 colheres de sopa de margarina, sal a gosto',
-                'Recheio: 300g de peito de frango cozido e desfiado, 1/2 cebola picada, 1 dente de alho picado, 2 colheres de sopa de requeijão cremoso, salsinha a gosto',
-                'Para empanar: 1 ovo batido, farinha de rosca'
-            ],
-            instructions: [
-                'Recheio: Em uma panela, refogue a cebola e o alho no azeite. Adicione o frango desfiado, tempere e refogue. Misture o requeijão e a salsinha. Reserve.',
-                'Massa: Em outra panela, ferva o caldo de frango com a margarina e o sal. Desligue o fogo e adicione a farinha de trigo de uma vez, mexendo vigorosamente até desgrudar do fundo da panela. Cozinhe por mais 2 minutos, mexendo.',
-                'Transfira a massa para uma superfície untada e sove enquanto estiver morna até ficar lisa.',
-                'Pegue pequenas porções da massa, abra na palma da mão, coloque uma porção do recheio no centro e modele as coxinhas. ',
-                'Passe as coxinhas no ovo batido e depois na farinha de rosca.',
-                'Frite em óleo quente até dourarem. Escorra em papel toalha e sirva.'
-            ]
-        },
-
-        // Café da Manhã
-        'omelete': {
-            title: 'Omelete Simples e Rápida',
-            category: 'cafe_da_manha',
-            ingredients: [
-                '3 ovos grandes',
-                '2 colheres de sopa de leite',
-                'Sal e pimenta do reino a gosto',
-                '1 colher de chá de manteiga ou azeite',
-                'Opcional: queijo ralado, presunto picado, tomate picado'
-            ],
-            instructions: [
-                'Em uma tigela, bata os ovos com o leite, sal e pimenta até as gemas e claras se misturarem, mas sem bater demais.',
-                'Aqueça a manteiga ou azeite em uma frigideira antiaderente em fogo médio.',
-                'Despeje a mistura de ovos na frigideira. Se for adicionar recheios (queijo, presunto, etc.), espalhe-os sobre os ovos enquanto eles ainda estão líquidos na superfície.',
-                'Cozinhe até as bordas começarem a firmar e o centro ainda estiver um pouco úmido. Dobre a omelete ao meio com uma espátula.',
-                'Deixe cozinhar por mais um minuto ou dois, dependendo da sua preferência de cozimento.',
+                'Moa os grãos de café na hora, com moagem fina (quase um pó).',
+                'Use 7-8 gramas de café moído por xícara (dose única).',
+                'Pré-aqueça sua máquina de expresso e a xícara.',
+                'Compacte o café moído no porta-filtro com a pressão correta.',
+                'Extraia o café por 25-30 segundos para uma dose de 30ml.',
                 'Sirva imediatamente.'
             ]
         },
-        'tapioca-queijo': {
-            title: 'Tapioca com Queijo Coalho',
-            category: 'cafe_da_manha',
+        'chocolate-quente': {
+            title: 'Chocolate Quente Cremoso',
+            category: 'Bebidas quentes',
             ingredients: [
-                '1 xícara de goma de tapioca hidratada',
-                '100g de queijo coalho ralado ou picado',
-                'Manteiga para untar a frigideira',
-                'Sal a gosto (se o queijo não for muito salgado)'
+                '2 xícaras de leite',
+                '2 colheres de sopa de chocolate em pó 50% cacau',
+                '1 colher de sopa de amido de milho',
+                '2 colheres de sopa de açúcar (ou a gosto)',
+                'Canela em pó (opcional)'
             ],
             instructions: [
-                'Aqueça uma frigideira antiaderente em fogo médio.',
-                'Peneire a goma de tapioca diretamente sobre a frigideira quente, cobrindo o fundo de forma uniforme (como uma panqueca fina).',
-                'Deixe cozinhar por cerca de 1 a 2 minutos, ou até as bordas começarem a se soltar e a massa grudar.',
-                'Espalhe o queijo coalho sobre metade da tapioca. Se desejar, adicione uma pitada de sal.',
-                'Dobre a tapioca ao meio, formando uma meia-lua. Pressione levemente com a espátula para o queijo derreter.',
-                'Cozinhe por mais 1-2 minutos de cada lado, até o queijo estar derretido e a tapioca levemente dourada.',
-                'Sirva quente.'
+                'Em uma panela, dissolva o amido de milho em um pouco de leite frio.',
+                'Adicione o restante do leite, o chocolate em pó e o açúcar.',
+                'Leve ao fogo baixo, mexendo sempre, até engrossar.',
+                'Sirva quente, polvilhado com canela se desejar.'
             ]
         },
-
-        // Alimentação Saudável
-        'salada-graos': {
-            title: 'Salada de Grãos Mediterrânea',
-            category: 'alimentacao_saudavel',
+        // Salgados
+        'coxinha-frango': {
+            title: 'Coxinha de Frango com Requeijão',
+            category: 'Salgados',
             ingredients: [
-                '1 xícara de grão de bico cozido',
+                '500g de peito de frango cozido e desfiado',
+                '1 xícara de requeijão cremoso',
+                '1/2 cebola picada',
+                '2 dentes de alho picados',
+                'Caldo do cozimento do frango',
+                '2 xícaras de farinha de trigo',
+                'Sal e pimenta do reino a gosto',
+                'Farinha de rosca para empanar',
+                'Óleo para fritar'
+            ],
+            instructions: [
+                'Refogue a cebola e o alho em um pouco de óleo. Adicione o frango desfiado e refogue bem.',
+                'Acrescente o requeijão e misture até incorporar.',
+                'Em outra panela, ferva 2 xícaras do caldo do frango com sal. Abaixe o fogo, adicione a farinha de trigo de uma vez e mexa vigorosamente até desgrudar do fundo da panela. Cozinhe por mais 1 minuto.',
+                'Deixe a massa amornar. Sove bem a massa em uma superfície limpa.',
+                'Pegue pequenas porções de massa, abra na palma da mão, coloque um pouco de recheio e modele as coxinhas.',
+                'Passe as coxinhas no caldo restante e depois na farinha de rosca.',
+                'Frite em óleo quente até dourarem.'
+            ]
+        },
+        'pao-queijo': {
+            title: 'Pão de Queijo Mineiro',
+            category: 'Salgados',
+            ingredients: [
+                '500g de polvilho doce',
+                '1 copo (americano) de leite',
+                '1/2 copo (americano) de óleo',
+                '1 colher de sopa de sal',
+                '3 ovos',
+                '300g de queijo minas curado ralado'
+            ],
+            instructions: [
+                'Em uma panela, aqueça o leite, o óleo e o sal até ferver. Desligue o fogo.',
+                'Em uma tigela grande, coloque o polvilho. Despeje a mistura quente sobre o polvilho e misture bem com uma colher, escaldando o polvilho.',
+                'Deixe esfriar um pouco. Adicione os ovos um a um, sovando bem a massa a cada adição, até obter uma massa homogênea e elástica.',
+                'Adicione o queijo ralado e incorpore bem na massa.',
+                'Faça bolinhas e coloque em uma assadeira untada ou com papel manteiga.',
+                'Asse em forno pré-aquecido a 180°C por cerca de 30-40 minutos, ou até dourar.'
+            ]
+        },
+        // Café da manhã
+        'omelete-legumes': {
+            title: 'Omelete de Legumes',
+            category: 'Café da manhã',
+            ingredients: [
+                '2 ovos',
+                '1/4 xícara de leite',
+                'Sal e pimenta a gosto',
+                '1/4 cebola picada',
+                '1/4 pimentão picado',
+                '1/4 xícara de espinafre picado',
+                'Queijo ralado (opcional)'
+            ],
+            instructions: [
+                'Bata os ovos com o leite, sal e pimenta.',
+                'Em uma frigideira antiaderente, refogue a cebola, pimentão e espinafre até ficarem macios.',
+                'Despeje a mistura de ovos sobre os legumes na frigideira.',
+                'Cozinhe em fogo baixo até as bordas começarem a firmar.',
+                'Se desejar, polvilhe queijo ralado.',
+                'Dobre ao meio e cozinhe por mais alguns minutos até o queijo derreter e a omelete estar cozida ao seu gosto.'
+            ]
+        },
+        'panquecas-frutas': {
+            title: 'Panquecas com Frutas Frescas',
+            category: 'Café da manhã',
+            ingredients: [
+                '1 xícara de farinha de trigo',
+                '1 colher de sopa de açúcar',
+                '1 colher de chá de fermento em pó',
+                '1/2 colher de chá de bicarbonato de sódio',
+                '1/4 colher de chá de sal',
+                '1 ovo grande',
+                '1 xícara de leite',
+                '2 colheres de sopa de manteiga derretida',
+                'Frutas frescas para servir (morangos, bananas, mirtilos)'
+            ],
+            instructions: [
+                'Em uma tigela grande, misture a farinha, açúcar, fermento, bicarbonato e sal.',
+                'Em outra tigela, bata o ovo, o leite e a manteiga derretida.',
+                'Despeje os ingredientes líquidos sobre os secos e misture até incorporar (não precisa ficar perfeito, umas bolinhas na massa são normais).',
+                'Aqueça uma frigideira antiaderente untada em fogo médio.',
+                'Despeje cerca de 1/4 xícara de massa para cada panqueca.',
+                'Cozinhe por 2-3 minutos de cada lado, ou até dourar e as bolhas aparecerem na superfície.',
+                'Sirva com suas frutas frescas favoritas e um pouco de mel ou xarope.'
+            ]
+        },
+        // Alimentação saudável
+        'vitamina-frutas': {
+            title: 'Vitamina Energizante de Frutas',
+            category: 'Alimentação saudável',
+            ingredients: [
+                '1 banana congelada',
+                '1/2 xícara de frutas vermelhas congeladas',
+                '1/2 xícara de espinafre baby (opcional, não altera o sabor)',
+                '1 xícara de leite (vegetal ou comum)',
+                '1 colher de sopa de sementes de chia ou linhaça',
+                'Mel ou adoçante a gosto (opcional)'
+            ],
+            instructions: [
+                'Coloque todos os ingredientes no liquidificador.',
+                'Bata até obter uma mistura homogênea e cremosa.',
+                'Sirva imediatamente.'
+            ]
+        },
+        'salada-quinoa': {
+            title: 'Salada de Quinoa com Legumes',
+            category: 'Alimentação saudável',
+            ingredients: [
                 '1 xícara de quinoa cozida',
                 '1/2 pepino picado',
                 '1/2 pimentão vermelho picado',
-                '1/4 cebola roxa fatiada finamente',
+                '1/4 cebola roxa picada',
                 '1/2 xícara de tomate cereja cortado ao meio',
-                'Para o molho: suco de 1 limão, 3 colheres de sopa de azeite, sal e pimenta do reino a gosto, 1 colher de sopa de hortelã fresca picada'
+                '2 colheres de sopa de salsinha picada',
+                'Suco de 1 limão',
+                '3 colheres de sopa de azeite de oliva extra virgem',
+                'Sal e pimenta do reino a gosto'
             ],
             instructions: [
-                'Em uma tigela grande, combine o grão de bico cozido, a quinoa cozida, o pepino, o pimentão, a cebola roxa e o tomate cereja.',
-                'Prepare o molho: Em um recipiente pequeno, misture o suco de limão, o azeite, o sal, a pimenta e a hortelã picada.',
-                'Despeje o molho sobre a salada de grãos e misture delicadamente para que todos os ingredientes fiquem bem temperados.',
-                'Cubra e leve à geladeira por pelo menos 30 minutos antes de servir para que os sabores se incorporem.',
-                'Sirva fria como acompanhamento ou prato principal leve.'
-            ]
-        },
-        'smoothie-verde': {
-            title: 'Smoothie Verde Detox',
-            category: 'alimentacao_saudavel',
-            ingredients: [
-                '1 folha grande de couve manteiga (sem o talo)',
-                '1/2 maçã verde picada',
-                '1/2 pepino picado',
-                '1 pedaço pequeno de gengibre (sem casca)',
-                '200ml de água de coco ou água filtrada',
-                'Suco de 1/2 limão',
-                'Opcional: 1 colher de chá de semente de chia ou linhaça'
-            ],
-            instructions: [
-                'Lave bem a folha de couve, a maçã e o pepino.',
-                'No liquidificador, coloque a couve (rasgada), a maçã, o pepino, o gengibre, a água de coco (ou água) e o suco de limão.',
-                'Bata em velocidade alta até obter uma mistura homogênea e cremosa. Se estiver muito grosso, adicione um pouco mais de água.',
-                'Se desejar, adicione a semente de chia ou linhaça e bata rapidamente novamente.',
-                'Sirva imediatamente para aproveitar todos os nutrientes.'
+                'Em uma tigela grande, misture a quinoa cozida e todos os legumes picados.',
+                'Em um pote pequeno, misture o suco de limão, azeite, sal e pimenta para fazer o molho.',
+                'Despeje o molho sobre a salada e misture bem.',
+                'Sirva fria ou em temperatura ambiente.'
             ]
         }
     };
 
-    // --- Menu Toggle ---
-    menuButton.addEventListener('click', () => {
-        categoryMenu.classList.toggle('active');
-    });
+    // Helper function to get URL parameters
+    const getUrlParameter = (name) => {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        const results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
 
-    // --- Home Button ---
-    homeButton.addEventListener('click', loadHomePage);
+    // Universal Header & Sidebar Logic
+    if (menuButton) {
+        menuButton.addEventListener('click', () => {
+            categorySidebar.classList.toggle('hidden');
+        });
+    }
 
-    // --- Category Click (Event Delegation) ---
-    categoryMenu.addEventListener('click', (event) => {
-        if (event.target.tagName === 'A') {
-            event.preventDefault(); // Previne o comportamento padrão do link
+    if (homeButton) {
+        homeButton.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    }
+
+    // Category links in sidebar
+    const categoryLinks = categorySidebar ? categorySidebar.querySelectorAll('a[data-category]') : [];
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
             const category = event.target.dataset.category;
-            loadRecipesByCategory(category);
-            categoryMenu.classList.remove('active'); // Esconde o menu após a seleção
-        }
+            window.location.href = `category.html?category=${encodeURIComponent(category)}`;
+        });
     });
 
-    // --- Search Functionality ---
-    searchButton.addEventListener('click', performSearch);
-    searchInput.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            performSearch();
-        }
-    });
+    // Search functionality
+    if (searchButton && searchInput) {
+        const performSearch = () => {
+            const query = searchInput.value.toLowerCase();
+            if (query) {
+                // Collect all matching recipe IDs
+                const matchingRecipeIds = Object.keys(recipes).filter(id =>
+                    recipes[id].title.toLowerCase().includes(query) ||
+                    recipes[id].category.toLowerCase().includes(query) ||
+                    recipes[id].ingredients.some(ingredient => ingredient.toLowerCase().includes(query))
+                );
 
-    function performSearch() {
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        if (searchTerm === '') {
-            alert('Por favor, digite algo para pesquisar.');
-            return;
-        }
+                if (matchingRecipeIds.length > 0) {
+                    // Redirect to a specific recipe if only one is found, otherwise to a search results page (not implemented, will use category.html for now)
+                    if (matchingRecipeIds.length === 1) {
+                        window.location.href = `recipes.html?recipeId=${encodeURIComponent(matchingRecipeIds[0])}`;
+                    } else {
+                        // For multiple results, we'll simulate a category page with "Search Results"
+                        // This is a simplified approach. A real search results page would be better.
+                        const resultsString = matchingRecipeIds.join(','); // Pass multiple IDs
+                        window.location.href = `category.html?category=Resultados da Pesquisa&recipeIds=${encodeURIComponent(resultsString)}`;
+                    }
+                } else {
+                    alert('Nenhuma receita encontrada para sua pesquisa.');
+                }
+            } else {
+                alert('Por favor, digite algo para pesquisar.');
+            }
+        };
 
-        const foundRecipeKeys = Object.keys(recipes).filter(key =>
-            recipes[key].title.toLowerCase().includes(searchTerm) ||
-            recipes[key].category.toLowerCase().includes(searchTerm) ||
-            recipes[key].ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
-        );
-
-        if (foundRecipeKeys.length > 0) {
-            displaySearchResults(foundRecipeKeys, searchTerm);
-        } else {
-            mainContent.innerHTML = `
-                <h2>Nenhuma Receita Encontrada</h2>
-                <p>Desculpe, não encontramos nenhuma receita para "${searchTerm}".</p>
-                <p>Tente um termo diferente ou explore nossas categorias no menu.</p>
-            `;
-        }
-        categoryMenu.classList.remove('active'); // Esconde o menu
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
     }
 
-    function displaySearchResults(recipeKeys, searchTerm) {
-        let html = `<h2>Resultados da Pesquisa para "${searchTerm}"</h2><div class="home-buttons-grid">`;
-        if (recipeKeys.length > 0) {
-            recipeKeys.forEach(key => {
-                const recipe = recipes[key];
-                html += `
-                    <button class="recipe-card-button" data-recipe="${key}">${recipe.title}</button>
-                `;
-            });
-            html += `</div>`;
-        } else {
-            html = `<p>Nenhuma receita encontrada para esta pesquisa.</p>`;
-        }
-        mainContent.innerHTML = html;
-        addRecipeButtonClickListeners(); // Re-adiciona listeners para os novos botões
-    }
 
-    // --- Carregar Detalhes da Receita ---
-    function loadRecipe(recipeKey) {
-        const recipe = recipes[recipeKey];
-        if (recipe) {
-            let ingredientsHtml = recipe.ingredients.map(item => `<li>${item}</li>`).join('');
-            let instructionsHtml = recipe.instructions.map(item => `<li>${item}</li>`).join('');
-
-            mainContent.innerHTML = `
-                <div class="recipe-detail">
-                    <h2>${recipe.title}</h2>
-                    <h3>Ingredientes:</h3>
-                    <ul>
-                        ${ingredientsHtml}
-                    </ul>
-                    <h3>Modo de Preparo:</h3>
-                    <ol>
-                        ${instructionsHtml}
-                    </ol>
-                    <button class="back-button" onclick="loadHomePage()">Voltar</button>
-                </div>
-            `;
-        } else {
-            mainContent.innerHTML = `<h2>Receita não encontrada!</h2><p>Desculpe, a receita que você procura não está disponível.</p>`;
-        }
-    }
-
-    // --- Carregar Receitas por Categoria ---
-    function loadRecipesByCategory(category) {
-        const filteredRecipes = Object.keys(recipes).filter(key => recipes[key].category === category);
-        // O texto do link da categoria clicada será o título da seção
-        const categoryDisplayName = event.target.textContent;
-
-        let html = `<h2>Receitas de ${categoryDisplayName}</h2><div class="home-buttons-grid">`;
-
-        if (filteredRecipes.length > 0) {
-            filteredRecipes.forEach(key => {
-                const recipe = recipes[key];
-                html += `
-                    <button class="recipe-card-button" data-recipe="${key}">${recipe.title}</button>
-                `;
-            });
-            html += `</div>`;
-        } else {
-            html = `<p>Nenhuma receita encontrada nesta categoria ainda.</p>`;
-        }
-        mainContent.innerHTML = html;
-        addRecipeButtonClickListeners(); // Re-adiciona listeners para os novos botões
-    }
-
-    // --- Carregar Página Inicial ---
-    function loadHomePage() {
-        mainContent.innerHTML = `
-            <h2>Bem-vindo ao QueroMais Receitas!</h2>
-            <p>Descubra o sabor da culinária com nossas receitas selecionadas.</p>
-            <div class="home-buttons-grid">
-                <button class="recipe-card-button" data-recipe="bolo-chocolate">Bolo de Chocolate Clássico</button>
-                <button class="recipe-card-button" data-recipe="sopa-legumes">Sopa Cremosa de Legumes</button>
-                <button class="recipe-card-button" data-recipe="cha-gengibre">Chá de Gengibre Refrescante</button>
-                <button class="recipe-card-button" data-recipe="pao-queijo">Pão de Queijo Tradicional</button>
-                <button class="recipe-card-button" data-recipe="omelete">Omelete Simples e Rápida</button>
-                <button class="recipe-card-button" data-recipe="salada-graos">Salada de Grãos Mediterrânea</button>
-            </div>
-        `;
-        addRecipeButtonClickListeners();
-    }
-
-    // --- Adicionar listeners de clique para os botões de receita (na home, busca, categoria) ---
-    function addRecipeButtonClickListeners() {
-        document.querySelectorAll('.recipe-card-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const recipeKey = button.dataset.recipe;
-                loadRecipe(recipeKey);
+    // Logic for `index.html` (Home Page specific)
+    if (document.body.classList.contains('index-page')) { // Add a class to body in index.html for clarity
+        const recipeCards = document.querySelectorAll('.recipe-card');
+        recipeCards.forEach(card => {
+            card.addEventListener('click', (event) => {
+                const recipeId = event.target.dataset.recipeId;
+                if (recipeId) {
+                    window.location.href = `recipes.html?recipeId=${encodeURIComponent(recipeId)}`;
+                }
             });
         });
     }
 
-    // Carregamento inicial da página Home
-    loadHomePage();
+
+    // Logic for `category.html`
+    if (document.getElementById('categoryTitle') && document.getElementById('recipeList')) {
+        const categoryTitleElement = document.getElementById('categoryTitle');
+        const recipeListElement = document.getElementById('recipeList');
+        const categoryName = getUrlParameter('category');
+        const recipeIdsFromSearch = getUrlParameter('recipeIds'); // For search results
+
+        if (categoryName) {
+            categoryTitleElement.textContent = categoryName;
+            recipeListElement.innerHTML = ''; // Clear previous content
+
+            let filteredRecipes = [];
+            if (categoryName === 'Resultados da Pesquisa' && recipeIdsFromSearch) {
+                const ids = recipeIdsFromSearch.split(',');
+                filteredRecipes = ids.map(id => ({ id: id, data: recipes[id] }));
+            } else {
+                for (const id in recipes) {
+                    if (recipes[id].category === categoryName) {
+                        filteredRecipes.push({ id: id, data: recipes[id] });
+                    }
+                }
+            }
+
+            if (filteredRecipes.length > 0) {
+                filteredRecipes.forEach(recipe => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `recipes.html?recipeId=${encodeURIComponent(recipe.id)}`;
+                    link.textContent = recipe.data.title;
+                    listItem.appendChild(link);
+                    recipeListElement.appendChild(listItem);
+                });
+            } else {
+                recipeListElement.innerHTML = `<li>Nenhuma receita encontrada para a categoria "${categoryName}".</li>`;
+            }
+        }
+    }
+
+
+    // Logic for `recipes.html`
+    if (document.getElementById('recipeTitle') && document.getElementById('recipeDetails')) {
+        const recipeTitleElement = document.getElementById('recipeTitle');
+        const recipeDetailsElement = document.getElementById('recipeDetails');
+        const recipeId = getUrlParameter('recipeId');
+
+        if (recipeId && recipes[recipeId]) {
+            const recipe = recipes[recipeId];
+            recipeTitleElement.textContent = recipe.title;
+
+            let detailsHtml = '<h3>Ingredientes:</h3><ul>';
+            recipe.ingredients.forEach(item => {
+                detailsHtml += `<li>${item}</li>`;
+            });
+            detailsHtml += '</ul><h3>Modo de Preparo:</h3><ol>';
+            recipe.instructions.forEach(step => {
+                detailsHtml += `<li>${step}</li>`;
+            });
+            detailsHtml += '</ol>';
+            recipeDetailsElement.innerHTML = detailsHtml;
+
+            document.title = `QueroMais - ${recipe.title}`; // Update page title
+        } else {
+            recipeTitleElement.textContent = 'Receita Não Encontrada';
+            recipeDetailsElement.innerHTML = '<p>Desculpe, a receita que você procura não foi encontrada.</p>';
+        }
+    }
 });

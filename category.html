@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QueroMais - Início</title>
+    <title>QueroMais - Categorias</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -40,16 +40,11 @@
         </aside>
 
         <main class="content">
-            <h2>Receitas em Destaque</h2>
-            <div class="recipe-grid">
-                <button class="recipe-card" data-recipe-id="bolo-cenoura">Bolo de Cenoura</button>
-                <button class="recipe-card" data-recipe-id="sopa-legumes">Sopa de Legumes</button>
-                <button class="recipe-card" data-recipe-id="cafe-expresso">Café Expresso</button>
-                <button class="recipe-card" data-recipe-id="coxinha-frango">Coxinha de Frango</button>
-                <button class="recipe-card" data-recipe-id="omelete-legumes">Omelete de Legumes</button>
-                <button class="recipe-card" data-recipe-id="vitamina-frutas">Vitamina de Frutas</button>
-            </div>
-            </main>
+            <h2 id="categoryTitle"></h2>
+            <ul id="recipeList" class="category-recipe-list">
+                </ul>
+            <button class="back-button" onclick="window.history.back()">Voltar</button>
+        </main>
     </div>
 
     <script src="script.js"></script>
