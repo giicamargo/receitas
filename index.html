@@ -3,55 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QueroMais - Início</title>
-    <link rel="stylesheet" href="style.css">
+    <title>QueroMais - Receitas Deliciosas</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="header-left">
-            <button class="icon-button" id="homeButton">
-                <i class="fas fa-home"></i>
-            </button>
-            <h1 class="title">QueroMais</h1>
-        </div>
-        <div class="header-center">
-            <input type="text" id="searchInput" placeholder="Pesquisar">
-            <button id="searchButton" class="search-button">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-        <div class="header-right">
-            <button id="menuButton" class="menu-button">Menu</button>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-home"></i> QueroMais</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Pesquisar...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+            <nav>
+                <button class="menu-button" id="menuButton">Menu</button>
+                <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a href="#" class="category-link" data-category="bolos">Bolos</a></li>
+                    <li><a href="#" class="category-link" data-category="sopas">Sopas</a></li>
+                    <li><a href="#" class="category-link" data-category="cafes">Cafés</a></li>
+                    <li><a href="#" class="category-link" data-category="salgados">Salgados</a></li>
+                    <li><a href="#" class="category-link" data-category="omeletes">Omeletes</a></li>
+                    <li><a href="#" class="category-link" data-category="vitaminas">Vitaminas</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="container">
-        <aside id="categorySidebar" class="hidden">
-            <h2>Categorias</h2>
-            <ul>
-                <li><a href="#" data-category="Bolos">Bolos</a></li>
-                <li><a href="#" data-category="Sopas">Sopas</a></li>
-                <li><a href="#" data-category="Bebidas quentes">Bebidas quentes</a></li>
-                <li><a href="#" data-category="Salgados">Salgados</a></li>
-                <li><a href="#" data-category="Café da manhã">Café da manhã</a></li>
-                <li><a href="#" data-category="Alimentação saudável">Alimentação saudável</a></li>
-            </ul>
-        </aside>
-
-        <main class="content">
+    <main class="container">
+        <section class="highlighted-recipes">
             <h2>Receitas em Destaque</h2>
-            <div class="recipe-grid">
-                <button class="recipe-card" data-recipe-id="bolo-cenoura">Bolo de Cenoura</button>
-                <button class="recipe-card" data-recipe-id="sopa-legumes">Sopa de Legumes</button>
-                <button class="recipe-card" data-recipe-id="cafe-expresso">Café Expresso</button>
-                <button class="recipe-card" data-recipe-id="coxinha-frango">Coxinha de Frango</button>
-                <button class="recipe-card" data-recipe-id="omelete-legumes">Omelete de Legumes</button>
-                <button class="recipe-card" data-recipe-id="vitamina-frutas">Vitamina de Frutas</button>
+            <div class="highlight-buttons">
+                <a href="receitas/bolos/bolo-de-cenoura.html" class="highlight-btn">Bolo de Cenoura</a>
+                <a href="receitas/sopas/sopa-de-legumes.html" class="highlight-btn">Sopa de Legumes</a>
+                <a href="receitas/cafes/cafe-expresso.html" class="highlight-btn">Café Expresso</a>
+                <a href="receitas/salgados/coxinha-de-frango.html" class="highlight-btn">Coxinha de Frango</a>
+                <a href="receitas/omeletes/omelete-de-legumes.html" class="highlight-btn">Omelete de Legumes</a>
+                <a href="receitas/vitaminas/vitamina-de-frutas.html" class="highlight-btn">Vitamina de Frutas</a>
             </div>
-            </main>
-    </div>
+        </section>
 
-    <script src="script.js"></script>
+        <section class="category-display" id="categoryDisplay">
+            </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QueroMais. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

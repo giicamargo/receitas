@@ -3,50 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QueroMais - Receita</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Receita: Bolo de Cenoura - QueroMais</title>
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="header-left">
-            <button class="icon-button" id="homeButton">
-                <i class="fas fa-home"></i>
-            </button>
-            <h1 class="title">QueroMais</h1>
-        </div>
-        <div class="header-center">
-            <input type="text" id="searchInput" placeholder="Pesquisar">
-            <button id="searchButton" class="search-button">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-        <div class="header-right">
-            <button id="menuButton" class="menu-button">Menu</button>
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html"><i class="fas fa-home"></i> QueroMais</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Pesquisar...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+            <nav>
+                <button class="menu-button" id="menuButton">Menu</button>
+                <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a href="#" class="category-link" data-category="bolos">Bolos</a></li>
+                    <li><a href="#" class="category-link" data-category="sopas">Sopas</a></li>
+                    <li><a href="#" class="category-link" data-category="cafes">Cafés</a></li>
+                    <li><a href="#" class="category-link" data-category="salgados">Salgados</a></li>
+                    <li><a href="#" class="category-link" data-category="omeletes">Omeletes</a></li>
+                    <li><a href="#" class="category-link" data-category="vitaminas">Vitaminas</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="container">
-        <aside id="categorySidebar" class="hidden">
-            <h2>Categorias</h2>
+    <main class="container">
+        <section class="recipe-page">
+            <h1>Bolo de Cenoura com Cobertura de Chocolate</h1>
+
+            <h3>Ingredientes:</h3>
             <ul>
-                <li><a href="#" data-category="Bolos">Bolos</a></li>
-                <li><a href="#" data-category="Sopas">Sopas</a></li>
-                <li><a href="#" data-category="Bebidas quentes">Bebidas quentes</a></li>
-                <li><a href="#" data-category="Salgados">Salgados</a></li>
-                <li><a href="#" data-category="Café da manhã">Café da manhã</a></li>
-                <li><a href="#" data-category="Alimentação saudável">Alimentação saudável</a></li>
+                <li>3 cenouras médias</li>
+                <li>4 ovos</li>
+                <li>1 xícara de óleo</li>
+                <li>2 xícaras de açúcar</li>
+                <li>2 xícaras de farinha de trigo</li>
+                <li>1 colher de sopa de fermento em pó</li>
+                <li>1 pitada de sal</li>
             </ul>
-        </aside>
 
-        <main class="content">
-            <h2 id="recipeTitle"></h2>
-            <div id="recipeDetails">
-                </div>
-            <button class="back-button" onclick="window.history.back()">Voltar</button>
-        </main>
-    </div>
+            <h3>Para a Cobertura:</h3>
+            <ul>
+                <li>1 xícara de açúcar</li>
+                <li>3 colheres de sopa de chocolate em pó</li>
+                <li>2 colheres de sopa de manteiga</li>
+                <li>1/2 xícara de leite</li>
+            </ul>
 
-    <script src="script.js"></script>
+            <h3>Modo de Preparo:</h3>
+            <ol>
+                <li>No liquidificador, bata as cenouras picadas, os ovos e o óleo até obter uma mistura homogênea.</li>
+                <li>Em uma tigela grande, adicione o açúcar e a farinha de trigo. Despeje a mistura do liquidificador e misture bem.</li>
+                <li>Por último, adicione o fermento e o sal, misturando delicadamente.</li>
+                <li>Despeje a massa em uma forma untada e enfarinhada.</li>
+                <li>Asse em forno pré-aquecido a 180°C por aproximadamente 40 minutos, ou até dourar e passar no teste do palito.</li>
+                <li>Enquanto o bolo assa, prepare a cobertura: em uma panela, misture todos os ingredientes e leve ao fogo baixo, mexendo sempre, até engrossar.</li>
+                <li>Despeje a cobertura quente sobre o bolo ainda morno.</li>
+            </ol>
+
+            <a href="javascript:history.back()" class="back-button">Voltar</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QueroMais. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
 </body>
 </html>
