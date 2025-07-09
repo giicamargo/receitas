@@ -1,46 +1,144 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cantinho do Café</title>
-  <link rel="stylesheet" href="estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantinho do Café</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Cantinho do Café</h1>
-    <input type="text" id="campoBusca" placeholder="Pesquisar" onkeyup="buscarReceita()">
-    <button class="menu-btn">Menu</button>
-  </header>
+    <header>
+        <div class="container">
+            <h1>Cantinho do Café</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#historia">História</a></li>
+                    <li><a href="#receitas">Receitas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <section class="bemvindo">
-      <h2>Seja Bem Vindo</h2>
-      <p>Prepare-se para embarcar em uma jornada aromática e saborosa. Aqui você encontrará dicas, receitas e curiosidades para aprofundar sua paixão por essa bebida tão amada.</p>
-      <strong>Sinta-se à vontade para preparar um delicioso café!</strong>
-    </section>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Onde cada xícara conta uma história</h2>
+                <p>Descubra o fascinante mundo do café, desde suas origens misteriosas até as mais deliciosas receitas.</p>
+                <a href="#receitas" class="btn">Explorar Receitas</a>
+            </div>
+        </section>
 
-    <aside class="categorias">
-      <h3>Categorias</h3>
-      <ul id="listaReceitas">
-        <li><a href="receitas/cafes.html">Cafés</a></li>
-        <li><a href="receitas/bolos.html">Bolos</a></li>
-        <li><a href="receitas/salgados.html">Salgados</a></li>
-        <li><a href="receitas/doces.html">Doces e Sobremesas</a></li>
-        <li><a href="receitas/petiscos.html">Petiscos</a></li>
-      </ul>
-    </aside>
-  </main>
+        <section id="historia" class="content-section">
+            <div class="container">
+                <h2>A Fascinante História do Café</h2>
+                <div class="history-grid">
+                    <div class="history-item">
+                        <h3>A Lenda de Kaldi</h3>
+                        <p>Diz a lenda que o café foi descoberto por um pastor etíope chamado Kaldi, que notou suas cabras ficando mais energéticas após comerem as frutas vermelhas de uma certa árvore. Ele experimentou as frutas e sentiu o mesmo efeito, levando-o a compartilhar sua descoberta com um monge local.</p>
+                        <img src="https://via.placeholder.com/400x250/8B4513/FFFFFF?text=Kaldi+e+as+Cabras" alt="Kaldi e as Cabras">
+                    </div>
+                    <div class="history-item">
+                        <h3>A Expansão Árabe</h3>
+                        <p>O café se espalhou pelo mundo árabe no século XV, onde era consumido principalmente em rituais religiosos e para manter a vigília. Os árabes foram os primeiros a torrar e moer os grãos para preparar a bebida como a conhecemos hoje.</p>
+                        <img src="https://via.placeholder.com/400x250/A0522D/FFFFFF?text=Comércio+Árabe" alt="Comércio Árabe de Café">
+                    </div>
+                    <div class="history-item">
+                        <h3>Chegada à Europa e Américas</h3>
+                        <p>No século XVII, o café chegou à Europa, inicialmente com resistência, mas logo se popularizou. As primeiras plantações nas Américas surgiram no século XVIII, impulsionadas pelo clima favorável, tornando-se um motor econômico crucial para muitos países, incluindo o Brasil.</p>
+                        <img src="https://via.placeholder.com/400x250/D2B48C/8B4513?text=Café+no+Brasil" alt="Plantação de Café no Brasil">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <script>
-    function buscarReceita() {
-      const input = document.getElementById('campoBusca').value.toLowerCase();
-      const lista = document.getElementById('listaReceitas').getElementsByTagName('li');
-      for (let i = 0; i < lista.length; i++) {
-        const item = lista[i].textContent.toLowerCase();
-        lista[i].style.display = item.includes(input) ? "" : "none";
-      }
-    }
-  </script>
+        <section id="receitas" class="content-section bg-light">
+            <div class="container">
+                <h2>Receitas Irresistíveis de Café</h2>
+                <div class="recipe-grid">
+                    <div class="recipe-card">
+                        <img src="https://via.placeholder.com/300x200/6F4E37/FFFFFF?text=Expresso" alt="Café Expresso">
+                        <h3>Café Expresso Perfeito</h3>
+                        <p>A base de muitas bebidas, o expresso é uma arte. Água quente sob pressão extrai o sabor concentrado dos grãos moídos na hora.</p>
+                        <ul>
+                            <li>20g de café finamente moído</li>
+                            <li>30ml de água a 92°C</li>
+                            <li>Máquina de expresso</li>
+                        </ul>
+                        <a href="#" class="btn-small">Ver Detalhes</a>
+                    </div>
+                    <div class="recipe-card">
+                        <img src="https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Cappuccino" alt="Cappuccino">
+                        <h3>Cappuccino Cremoso</h3>
+                        <p>Uma deliciosa combinação de café expresso, leite vaporizado e uma camada generosa de espuma de leite. Perfeito para qualquer hora.</p>
+                        <ul>
+                            <li>1 dose de expresso</li>
+                            <li>120ml de leite vaporizado</li>
+                            <li>Espuma de leite</li>
+                            <li>Chocolate em pó (opcional)</li>
+                        </ul>
+                        <a href="#" class="btn-small">Ver Detalhes</a>
+                    </div>
+                    <div class="recipe-card">
+                        <img src="https://via.placeholder.com/300x200/A0522D/FFFFFF?text=Latte+Macchiato" alt="Latte Macchiato">
+                        <h3>Latte Macchiato</h3>
+                        <p>O latte macchiato se destaca pelas suas camadas: leite quente, café expresso e uma finalização com espuma de leite.</p>
+                        <ul>
+                            <li>150ml de leite quente</li>
+                            <li>1 dose de expresso</li>
+                            <li>Espuma de leite</li>
+                        </ul>
+                        <a href="#" class="btn-small">Ver Detalhes</a>
+                    </div>
+                    <div class="recipe-card">
+                        <img src="https://via.placeholder.com/300x200/D2B48C/8B4513?text=Cold+Brew" alt="Cold Brew">
+                        <h3>Cold Brew Refrescante</h3>
+                        <p>Prepare o café por infusão a frio, resultando em uma bebida menos ácida, mais suave e perfeita para os dias quentes.</p>
+                        <ul>
+                            <li>1 xícara de café moído grosso</li>
+                            <li>4 xícaras de água fria</li>
+                            <li>Jarra, coador de pano</li>
+                        </ul>
+                        <a href="#" class="btn-small">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="content-section">
+            <div class="container">
+                <h2>Fale Conosco</h2>
+                <p>Tem alguma dúvida, sugestão ou quer compartilhar sua receita favorita? Entre em contato!</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cantinho do Café. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com" target="_blank">Facebook</a>
+                <a href="https://www.twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
