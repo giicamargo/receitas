@@ -1,59 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QueroMais - Receitas Deliciosas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Cantinho do Café</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/000000/coffee-cup.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html"><i class="fas fa-home"></i> QueroMais</a>
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="logo-link">
+                <img src="https://img.icons8.com/ios-filled/50/000000/coffee-cup.png" alt="Xícara de Café" class="coffee-cup-icon" title="Voltar para a página inicial de Café">
+                <h1>Cantinho do Café</h1>
+            </a>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar receita...">
+                <button id="searchButton">Pesquisar</button>
+                <div id="searchResults" class="search-results">
+                    </div>
             </div>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Pesquisar...">
-                <button id="searchButton"><i class="fas fa-search"></i></button>
-            </div>
-            <nav>
-                <button class="menu-button" id="menuButton">Menu</button>
-                <ul class="dropdown-menu" id="dropdownMenu">
-                    <li><a href="#" class="category-link" data-category="bolos">Bolos</a></li>
-                    <li><a href="#" class="category-link" data-category="sopas">Sopas</a></li>
-                    <li><a href="#" class="category-link" data-category="cafes">Cafés</a></li>
-                    <li><a href="#" class="category-link" data-category="salgados">Salgados</a></li>
-                    <li><a href="#" class="category-link" data-category="omeletes">Omeletes</a></li>
-                    <li><a href="#" class="category-link" data-category="vitaminas">Vitaminas</a></li>
-                </ul>
-            </nav>
         </div>
+        <nav class="header-right">
+            <button class="menu-button" id="menuButton">Menu</button>
+        </nav>
     </header>
 
-    <main class="container">
-        <section class="highlighted-recipes">
-            <h2>Receitas em Destaque</h2>
-            <div class="highlight-buttons">
-                <a href="receitas/bolos/bolo-de-cenoura.html" class="highlight-btn">Bolo de Cenoura</a>
-                <a href="receitas/sopas/sopa-de-legumes.html" class="highlight-btn">Sopa de Legumes</a>
-                <a href="receitas/cafes/cafe-expresso.html" class="highlight-btn">Café Expresso</a>
-                <a href="receitas/salgados/coxinha-de-frango.html" class="highlight-btn">Coxinha de Frango</a>
-                <a href="receitas/omeletes/omelete-de-legumes.html" class="highlight-btn">Omelete de Legumes</a>
-                <a href="receitas/vitaminas/vitamina-de-frutas.html" class="highlight-btn">Vitamina de Frutas</a>
+    <div class="main-content">
+        <aside class="sidebar-left">
+            <h2>Seja Bem Vindo</h2>
+            <p>Prepare-se para embarcar em uma jornada aromática e saborosa. Aqui você encontrará dicas, receitas e curiosidades para aprofundar sua paixão por essa bebida tão amada.</p>
+            <p>Sinta-se à vontade para preparar um delicioso café!</p>
+            <p>O café, com seu aroma inconfundível e sabor complexo, é muito mais do que uma bebida: é um ritual, um momento de pausa, um impulsionador de ideias e conversas. Desde as plantações exuberantes até a xícara fumegante em suas mãos, cada etapa do processo é carregada de história e paixão.</p>
+            <p>Explore nossas páginas para descobrir os segredos de um bom expresso, as nuances de um café coado perfeito, e as delícias de combinações inovadoras. Aprenda sobre os diferentes grãos, métodos de preparo e as culturas que celebram essa maravilha líquida. Seja você um barista amador ou um apreciador casual, há sempre algo novo para descobrir no universo do café.</p>
+        </aside>
+
+        <aside class="sidebar-right">
+            <h3>Categorias</h3>
+            <ul id="categoryList">
+                <li><button class="category-btn" data-category="bebidas-quentes">Bebidas quentes</button></li>
+                <li><button class="category-btn" data-category="bebidas-frias">Bebidas frias</button></li>
+                <li><button class="category-btn" data-category="cafes">Cafés</button></li>
+                <li><button class="category-btn" data-category="lanches-saudaveis">Lanches saudáveis</button></li>
+                <li><button class="category-btn" data-category="bolos">Bolos</button></li>
+                <li><button class="category-btn" data-category="salgados">Salgados</button></li>
+                <li><button class="category-btn" data-category="doces-sobremesas">Doces e sobremesas</button></li>
+                <li><button class="category-btn" data-category="petiscos">Petiscos</button></li>
+            </ul>
+        </aside>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+    <div id="popup" class="popup">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <div id="popupContent" class="popup-content">
             </div>
-        </section>
+        <button class="back-to-home-btn" onclick="goToHome()">Voltar para a Página Inicial</button>
+    </div>
 
-        <section class="category-display" id="categoryDisplay">
-            </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 QueroMais. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
