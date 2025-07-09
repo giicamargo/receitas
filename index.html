@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Café Interativo</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cantinho do Café</title>
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
   <header>
-    <h1>☕ Café Interativo</h1>
-    <p>Receitas, história e paixão por café!</p>
+    <h1>Cantinho do Café</h1>
+    <input type="text" id="campoBusca" placeholder="Pesquisar" onkeyup="buscarReceita()">
+    <button class="menu-btn">Menu</button>
   </header>
 
-  <nav>
-    <a href="#historia">História do Café</a>
-    <a href="#receitas">Receitas</a>
-  </nav>
-
   <main>
-    <section id="historia">
-      <h2>📜 História do Café</h2>
-      <p>
-        O café tem suas origens na Etiópia, com lendas sobre pastores que notaram o efeito energizante da planta.
-        Com o tempo, espalhou-se pelo Oriente Médio e pelo mundo. Hoje, é uma das bebidas mais consumidas globalmente.
-      </p>
+    <section class="bemvindo">
+      <h2>Seja Bem Vindo</h2>
+      <p>Prepare-se para embarcar em uma jornada aromática e saborosa. Aqui você encontrará dicas, receitas e curiosidades para aprofundar sua paixão por essa bebida tão amada.</p>
+      <strong>Sinta-se à vontade para preparar um delicioso café!</strong>
     </section>
 
-    <section id="receitas">
-      <h2>🍰 Receitas com Café</h2>
-      <div class="receita-lista">
-        <a class="botao-receita" href="receitas/cappuccino.html">Cappuccino</a>
-        <a class="botao-receita" href="receitas/mocha.html">Mocha</a>
-        <a class="botao-receita" href="receitas/cafe-gelado.html">Café Gelado</a>
-      </div>
-    </section>
+    <aside class="categorias">
+      <h3>Categorias</h3>
+      <ul id="listaReceitas">
+        <li><a href="receitas/cafes.html">Cafés</a></li>
+        <li><a href="receitas/bolos.html">Bolos</a></li>
+        <li><a href="receitas/salgados.html">Salgados</a></li>
+        <li><a href="receitas/doces.html">Doces e Sobremesas</a></li>
+        <li><a href="receitas/petiscos.html">Petiscos</a></li>
+      </ul>
+    </aside>
   </main>
 
-  <footer>
-    <p>© 2025 Café Interativo. Feito com amor e café.</p>
-  </footer>
+  <script>
+    function buscarReceita() {
+      const input = document.getElementById('campoBusca').value.toLowerCase();
+      const lista = document.getElementById('listaReceitas').getElementsByTagName('li');
+      for (let i = 0; i < lista.length; i++) {
+        const item = lista[i].textContent.toLowerCase();
+        lista[i].style.display = item.includes(input) ? "" : "none";
+      }
+    }
+  </script>
 </body>
 </html>

@@ -1,68 +1,78 @@
 body {
-  font-family: 'Georgia', serif;
-  background-color: #f3eee9;
-  color: #4b2e2e;
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  background-color: #f5f0e6;
+  color: #333;
 }
 
 header {
-  background-color: #7b4b3a;
-  color: white;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e3d5ca;
+  padding: 15px;
+  border-bottom: 2px solid #a68a64;
 }
 
-nav {
-  background-color: #b08b6d;
-  padding: 1rem;
-  text-align: center;
+header h1 {
+  color: #4b2e2e;
+  margin: 0;
 }
 
-nav a {
+input[type="text"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #dfeeea;
+}
+
+.menu-btn {
+  padding: 10px 20px;
+  background-color: #c19a6b;
   color: white;
-  margin: 0 1rem;
-  text-decoration: none;
+  border: none;
+  border-radius: 5px;
   font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
+  cursor: pointer;
 }
 
 main {
-  padding: 2rem;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-.receita-lista {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  padding: 20px;
 }
 
-.botao-receita {
-  background-color: #6b4226;
-  color: white;
-  padding: 1rem;
+.bemvindo {
+  flex: 2;
+  margin-right: 20px;
+}
+
+.bemvindo h2 {
+  color: #4b2e2e;
+}
+
+.categorias {
+  flex: 1;
+  background-color: #fff7f0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.categorias h3 {
+  margin-top: 0;
+  color: #5e3c2c;
+}
+
+.categorias ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.categorias a {
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
+  color: #5e3c2c;
 }
 
-.botao-receita:hover {
-  background-color: #8a5a3b;
-}
-
-footer {
-  background-color: #7b4b3a;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+.categorias a:hover {
+  text-decoration: underline;
 }
