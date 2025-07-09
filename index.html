@@ -1,123 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cantinho do Café</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Café Interativo</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
   <header>
-    <div class="header-left">
-      <img src="xicaradecafe.png" alt="Xícara" id="xicara" onclick="abrirCafe()">
-      <h1 onclick="voltarInicio()">Cantinho do Café</h1>
-    </div>
-    <div class="header-right">
-      <input type="text" id="pesquisa" placeholder="Pesquisar...">
-      <button onclick="ativarPesquisa()">Pesquisar</button>
-      <button id="menuBtn" onclick="toggleMenu()">Menu</button>
-    </div>
+    <h1>☕ Café Interativo</h1>
+    <p>Receitas, história e paixão por café!</p>
   </header>
 
-  <nav id="menuCategorias" class="oculto">
-    <ul>
-      <li><button onclick="abrirCategoria('quentes')">Bebidas quentes</button></li>
-      <li><button onclick="abrirCategoria('frias')">Bebidas frias</button></li>
-      <li><button onclick="abrirCafe()">Café</button></li>
-      <li><button onclick="abrirCategoria('lanches')">Lanches saudáveis</button></li>
-      <li><button onclick="abrirCategoria('bolos')">Bolos</button></li>
-      <li><button onclick="abrirCategoria('salgados')">Salgados</button></li>
-      <li><button onclick="abrirCategoria('doces')">Doces e sobremesas</button></li>
-      <li><button onclick="abrirCategoria('petiscos')">Petiscos</button></li>
-    </ul>
+  <nav>
+    <a href="#historia">História do Café</a>
+    <a href="#receitas">Receitas</a>
   </nav>
 
-  <main id="conteudo">
-    <section>
-      <h2>Seja Bem-Vindo</h2>
-      <p>Prepare-se para embarcar em uma jornada aromática e saborosa. Aqui você encontrará dicas, receitas e curiosidades para aprofundar sua paixão por essa bebida tão amada.</p>
-      <strong>Sinta-se à vontade para preparar um delicioso café!</strong>
+  <main>
+    <section id="historia">
+      <h2>📜 História do Café</h2>
+      <p>
+        O café tem suas origens na Etiópia, com lendas sobre pastores que notaram o efeito energizante da planta.
+        Com o tempo, espalhou-se pelo Oriente Médio e pelo mundo. Hoje, é uma das bebidas mais consumidas globalmente.
+      </p>
     </section>
-    <section id="resultadosPesquisa" class="oculto"></section>
+
+    <section id="receitas">
+      <h2>🍰 Receitas com Café</h2>
+      <div class="receita-lista">
+        <a class="botao-receita" href="receitas/cappuccino.html">Cappuccino</a>
+        <a class="botao-receita" href="receitas/mocha.html">Mocha</a>
+        <a class="botao-receita" href="receitas/cafe-gelado.html">Café Gelado</a>
+      </div>
+    </section>
   </main>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menuCategorias');
-      menu.classList.toggle('oculto');
-    }
-
-    function voltarInicio() {
-      document.getElementById('conteudo').innerHTML = `
-        <section>
-          <h2>Seja Bem-Vindo</h2>
-          <p>Prepare-se para embarcar em uma jornada aromática e saborosa. Aqui você encontrará dicas, receitas e curiosidades para aprofundar sua paixão por essa bebida tão amada.</p>
-          <strong>Sinta-se à vontade para preparar um delicioso café!</strong>
-        </section>
-      `;
-    }
-
-    function abrirCafe() {
-      document.getElementById('conteudo').innerHTML = `
-        <section>
-          <button onclick="voltarInicio()">Voltar</button>
-          <h2>História do Café</h2>
-          <p>A história do café começa na África e se espalha pelo mundo. Tornou-se uma das bebidas mais apreciadas globalmente.</p>
-          <h3>Receitas:</h3>
-          <ul>
-            <li>Cappuccino</li>
-            <li>Café Gelado</li>
-            <li>Mocha</li>
-            <li>Espresso</li>
-          </ul>
-        </section>
-      `;
-    }
-
-    function abrirCategoria(categoria) {
-      document.getElementById('conteudo').innerHTML = `
-        <section>
-          <button onclick="voltarInicio()">Voltar</button>
-          <h2>Receitas de ${categoria}</h2>
-          <p>Aqui estão algumas receitas deliciosas sobre ${categoria}!</p>
-          <ul>
-            <li>Receita 1 de ${categoria}</li>
-            <li>Receita 2 de ${categoria}</li>
-          </ul>
-        </section>
-      `;
-    }
-
-    function ativarPesquisa() {
-      const termo = document.getElementById("pesquisa").value.toLowerCase();
-      const conteudo = document.getElementById("conteudo");
-      const resultados = document.getElementById("resultadosPesquisa");
-
-      let opcoes = ["cappuccino", "cafe gelado", "bolo de cenoura", "suco detox", "pao de queijo"];
-      let html = '<button onclick="voltarInicio()">Voltar</button><h2>Resultados:</h2><ul>';
-
-      let encontrados = opcoes.filter(item => item.includes(termo));
-
-      if (encontrados.length > 0) {
-        encontrados.forEach(item => {
-          html += `<li><button onclick="mostrarReceita('${item}')">${item}</button></li>`;
-        });
-        html += '</ul>';
-      } else {
-        html += '<li>Nenhum resultado encontrado.</li></ul>';
-      }
-
-      conteudo.innerHTML = html;
-    }
-
-    function mostrarReceita(nome) {
-      document.getElementById("conteudo").innerHTML = `
-        <section>
-          <button onclick="voltarInicio()">Voltar</button>
-          <h2>${nome}</h2>
-          <p>Instruções detalhadas para preparar ${nome}.</p>
-        </section>
-      `;
-    }
+  <footer>
+    <p>© 2025 Café Interativo. Feito com amor e café.</p>
+  </footer>
+</body>
+</html>

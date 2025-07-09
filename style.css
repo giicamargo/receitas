@@ -1,81 +1,68 @@
- </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f5f0;
-      color: #3e2c1c;
-    }
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f3eee9;
+  color: #4b2e2e;
+  margin: 0;
+  padding: 0;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      background-color: #e2c9a8;
-      padding: 10px;
-      align-items: center;
-    }
+header {
+  background-color: #7b4b3a;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
 
-    .header-left h1 {
-      color: #4b2e1e;
-      cursor: pointer;
-      margin-left: 10px;
-    }
+nav {
+  background-color: #b08b6d;
+  padding: 1rem;
+  text-align: center;
+}
 
-    .header-left {
-      display: flex;
-      align-items: center;
-    }
+nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .header-left img {
-      width: 40px;
-      cursor: pointer;
-    }
+nav a:hover {
+  text-decoration: underline;
+}
 
-    .header-right input {
-      padding: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+main {
+  padding: 2rem;
+}
 
-    .header-right button {
-      padding: 5px 10px;
-      margin-left: 5px;
-      border: none;
-      background-color: #6f4e37;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+section {
+  margin-bottom: 2rem;
+}
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-    }
+.receita-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 
-    nav li {
-      margin: 5px 0;
-    }
+.botao-receita {
+  background-color: #6b4226;
+  color: white;
+  padding: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
 
-    nav button {
-      background-color: #d2b48c;
-      border: none;
-      padding: 8px;
-      width: 100%;
-      text-align: left;
-      cursor: pointer;
-      border-radius: 4px;
-    }
+.botao-receita:hover {
+  background-color: #8a5a3b;
+}
 
-    .oculto {
-      display: none;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    button {
-      margin-top: 10px;
-    }
-  </style>
-</body>
-</html>
+footer {
+  background-color: #7b4b3a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
