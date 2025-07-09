@@ -1,63 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cantinho do Café</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://img.icons8.com/ios-filled/50/000000/coffee-cup.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cantinho do Café</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header class="header">
-        <div class="header-left">
-            <a href="index.html" class="logo-link">
-                <img src="https://img.icons8.com/ios-filled/50/000000/coffee-cup.png" alt="Xícara de Café" class="coffee-cup-icon" title="Voltar para a página inicial de Café">
-                <h1>Cantinho do Café</h1>
-            </a>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Pesquisar receita...">
-                <button id="searchButton">Pesquisar</button>
-                <div id="searchResults" class="search-results">
-                    </div>
-            </div>
-        </div>
-        <nav class="header-right">
-            <button class="menu-button" id="menuButton">Menu</button>
-        </nav>
-    </header>
-
-    <div class="main-content">
-        <aside class="sidebar-left">
-            <h2>Seja Bem Vindo</h2>
-            <p>Prepare-se para embarcar em uma jornada aromática e saborosa. Aqui você encontrará dicas, receitas e curiosidades para aprofundar sua paixão por essa bebida tão amada.</p>
-            <p>Sinta-se à vontade para preparar um delicioso café!</p>
-            <p>O café, com seu aroma inconfundível e sabor complexo, é muito mais do que uma bebida: é um ritual, um momento de pausa, um impulsionador de ideias e conversas. Desde as plantações exuberantes até a xícara fumegante em suas mãos, cada etapa do processo é carregada de história e paixão.</p>
-            <p>Explore nossas páginas para descobrir os segredos de um bom expresso, as nuances de um café coado perfeito, e as delícias de combinações inovadoras. Aprenda sobre os diferentes grãos, métodos de preparo e as culturas que celebram essa maravilha líquida. Seja você um barista amador ou um apreciador casual, há sempre algo novo para descobrir no universo do café.</p>
-        </aside>
-
-        <aside class="sidebar-right">
-            <h3>Categorias</h3>
-            <ul id="categoryList">
-                <li><button class="category-btn" data-category="bebidas-quentes">Bebidas quentes</button></li>
-                <li><button class="category-btn" data-category="bebidas-frias">Bebidas frias</button></li>
-                <li><button class="category-btn" data-category="cafes">Cafés</button></li>
-                <li><button class="category-btn" data-category="lanches-saudaveis">Lanches saudáveis</button></li>
-                <li><button class="category-btn" data-category="bolos">Bolos</button></li>
-                <li><button class="category-btn" data-category="salgados">Salgados</button></li>
-                <li><button class="category-btn" data-category="doces-sobremesas">Doces e sobremesas</button></li>
-                <li><button class="category-btn" data-category="petiscos">Petiscos</button></li>
-            </ul>
-        </aside>
+  <header>
+    <div class="header-left">
+      <img src="xicaradecafe.png" alt="Xícara" id="xicara" onclick="abrirCafe()">
+      <h1 onclick="voltarInicio()">Cantinho do Café</h1>
     </div>
-
-    <div id="overlay" class="overlay"></div>
-    <div id="popup" class="popup">
-        <button class="close-btn" id="closePopup">&times;</button>
-        <div id="popupContent" class="popup-content">
-            </div>
-        <button class="back-to-home-btn" onclick="goToHome()">Voltar para a Página Inicial</button>
+    <div class="header-right">
+      <input type="text" id="pesquisa" placeholder="Pesquisar...">
+      <button onclick="ativarPesquisa()">Pesquisar</button>
+      <button id="menuBtn" onclick="toggleMenu()">Menu</button>
     </div>
+  </header>
 
-    <script src="script.js"></script>
-</body>
-</html>
+  <nav id="menuCategorias" class="oculto">
+    <ul>
+      <li><button onclick="abrirCategoria('quentes')">Bebidas quentes</button></li>
+      <li><button onclick="abrirCategoria('frias')">Bebidas frias</button></li>
+      <li><button onclick="abrirCafe()">Café</button></li>
+      <li><button onclick="abrirCategoria('lanches')">Lanches saudáveis</button></li>
+      <li><button onclick="abrirCategoria('bolos')">Bolos</button></li>
+      <li><button onclick="abrirCategoria('salgados')">Salgados</button></li>
+      <li><button onclick="abrirCategoria('doces')">Doces e sobremesas</button></li>
+      <li><button onclick="abrirCategoria('petiscos')">Petiscos</button></li>
+    </ul>
+  </nav>
+
+  <main id="conteudo">
+    <section>
+      <h2>Seja Bem-Vindo</h2>
+      <p>Prepare-se para embarcar em uma jornada aromática e saborosa. Aqui você encontrará dicas, receitas e curiosidades para aprofundar sua paixão por essa bebida tão amada.</p>
+      <strong>Sinta-se à vontade para preparar um delicioso café!</strong>
+    </section>
+    <section id="resultadosPesquisa" class="oculto"></section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuCategorias');
+      menu.classList.toggle('oculto');
+    }
+
+    function voltarInicio() {
+      document.getElementById('conteudo').innerHTML = `
+        <section>
+          <h2>Seja Bem-Vindo</h2>
+          <p>Prepare-se para embarcar em uma jornada aromática e saborosa. Aqui você encontrará dicas, receitas e curiosidades para aprofundar sua paixão por essa bebida tão amada.</p>
+          <strong>Sinta-se à vontade para preparar um delicioso café!</strong>
+        </section>
+      `;
+    }
+
+    function abrirCafe() {
+      document.getElementById('conteudo').innerHTML = `
+        <section>
+          <button onclick="voltarInicio()">Voltar</button>
+          <h2>História do Café</h2>
+          <p>A história do café começa na África e se espalha pelo mundo. Tornou-se uma das bebidas mais apreciadas globalmente.</p>
+          <h3>Receitas:</h3>
+          <ul>
+            <li>Cappuccino</li>
+            <li>Café Gelado</li>
+            <li>Mocha</li>
+            <li>Espresso</li>
+          </ul>
+        </section>
+      `;
+    }
+
+    function abrirCategoria(categoria) {
+      document.getElementById('conteudo').innerHTML = `
+        <section>
+          <button onclick="voltarInicio()">Voltar</button>
+          <h2>Receitas de ${categoria}</h2>
+          <p>Aqui estão algumas receitas deliciosas sobre ${categoria}!</p>
+          <ul>
+            <li>Receita 1 de ${categoria}</li>
+            <li>Receita 2 de ${categoria}</li>
+          </ul>
+        </section>
+      `;
+    }
+
+    function ativarPesquisa() {
+      const termo = document.getElementById("pesquisa").value.toLowerCase();
+      const conteudo = document.getElementById("conteudo");
+      const resultados = document.getElementById("resultadosPesquisa");
+
+      let opcoes = ["cappuccino", "cafe gelado", "bolo de cenoura", "suco detox", "pao de queijo"];
+      let html = '<button onclick="voltarInicio()">Voltar</button><h2>Resultados:</h2><ul>';
+
+      let encontrados = opcoes.filter(item => item.includes(termo));
+
+      if (encontrados.length > 0) {
+        encontrados.forEach(item => {
+          html += `<li><button onclick="mostrarReceita('${item}')">${item}</button></li>`;
+        });
+        html += '</ul>';
+      } else {
+        html += '<li>Nenhum resultado encontrado.</li></ul>';
+      }
+
+      conteudo.innerHTML = html;
+    }
+
+    function mostrarReceita(nome) {
+      document.getElementById("conteudo").innerHTML = `
+        <section>
+          <button onclick="voltarInicio()">Voltar</button>
+          <h2>${nome}</h2>
+          <p>Instruções detalhadas para preparar ${nome}.</p>
+        </section>
+      `;
+    }
