@@ -1,657 +1,97 @@
-```
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cantinho do Café</title>
-    <style>
-        :root {
-            --primary-color: #6F4E37;
-            --secondary-color: #C4A484;
-            --accent-color: #E6D5C3;
-            --text-color: #3E2723;
-            --light-color: #FFF8F0;
-            --font-main: 'Arial', sans-serif;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-main);
-            background-color: var(--light-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        
-        .logo-container h1 {
-            margin-left: 15px;
-            font-size: 2rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
-        }
-        
-        .logo-container:hover h1 {
-            transform: scale(1.05);
-        }
-        
-        .header-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            background-color: var(--accent-color);
-            color: var(--text-color);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero {
-            background: url('https://placehold.co/1920x1080') no-repeat center center;
-            background-size: cover;
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        
-        section {
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .welcome-section {
-            text-align: center;
-            padding-bottom: 30px;
-        }
-        
-        .welcome-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-        }
-        
-        .highlight-recipes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .recipe-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        
-        .recipe-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .recipe-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .recipe-content {
-            padding: 20px;
-        }
-        
-        .recipe-content h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .recipe-content p {
-            color: var(--text-color);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .view-recipe-btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .view-recipe-btn:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            overflow-y: auto;
-            padding: 20px;
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 800px;
-            position: relative;
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-        }
-        
-        .modal-recipe-content h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .modal-recipe-content img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .ingredients, .instructions {
-            margin-bottom: 20px;
-        }
-        
-        .ingredients h3, .instructions h3 {
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-        
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 10px;
-            right: 0;
-        }
-        
-        .dropdown-content a {
-            color: var(--text-color);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: background-color 0.3s;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: var(--accent-color);
-        }
-        
-        .show {
-            display: block;
-        }
-        
-        .sub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .sub-dropdown-content {
-            display: none;
-            position: absolute;
-            left: 100%;
-            top: 0;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 10px;
-        }
-        
-        .sub-dropdown-content a {
-            padding: 12px 16px;
-            color: var(--text-color);
-            text-decoration: none;
-            display: block;
-        }
-        
-        .sub-dropdown:hover .sub-dropdown-content {
-            display: block;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 1rem;
-            }
-            
-            .header-buttons {
-                margin-top: 15px;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .dropdown-content {
-                right: auto;
-                left: 0;
-            }
-            
-            .sub-dropdown-content {
-                left: 0;
-                top: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receitas de Café da Manhã</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f3ed;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #d8a47f;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      background-color: #a47551;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+    }
+    .receita {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    footer {
+      background-color: #d8a47f;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo-container" onclick="goToHome()">
-            <h1>Cantinho do Café</h1>
-        </div>
-        <div class="header-buttons">
-            <div class="dropdown">
-                <button class="btn" onclick="toggleMenu()">Menu</button>
-                <div id="menuDropdown" class="dropdown-content">
-                    <div class="sub-dropdown">
-                        <a href="#" onclick="event.preventDefault(); toggleSubMenu('hotDrinks')">Bebidas Quentes</a>
-                        <div id="hotDrinks" class="sub-dropdown-content">
-                            <a href="#" onclick="showRecipe('chocolate-quente')">Chocolate Quente</a>
-                            <a href="#" onclick="showRecipe('cappuccino')">Cappuccino</a>
-                            <a href="#" onclick="showRecipe('chai-latte')">Chai Latte</a>
-                        </div>
-                    </div>
-                    <div class="sub-dropdown">
-                        <a href="#" onclick="event.preventDefault(); toggleSubMenu('coldDrinks')">Bebidas Frias</a>
-                        <div id="coldDrinks" class="sub-dropdown-content">
-                            <a href="#" onclick="showRecipe('cafe-gelado')">Café Gelado</a>
-                            <a href="#" onclick="showRecipe('frappuccino')">Frappuccino</a>
-                            <a href="#" onclick="showRecipe('limonada')">Limonada Fresca</a>
-                        </div>
-                    </div>
-                    <div class="sub-dropdown">
-                        <a href="#" onclick="event.preventDefault(); toggleSubMenu('coffees')">Cafés</a>
-                        <div id="coffees" class="sub-dropdown-content">
-                            <a href="#" onclick="showRecipe('expresso')">Expresso</a>
-                            <a href="#" onclick="showRecipe('latte')">Latte</a>
-                            <a href="#" onclick="showRecipe('mocha')">Mocha</a>
-                        </div>
-                    </div>
-                    <div class="sub-dropdown">
-                        <a href="#" onclick="event.preventDefault(); toggleSubMenu('healthySnacks')">Lanches Saudáveis</a>
-                        <div id="healthySnacks" class="sub-dropdown-content">
-                            <a href="#" onclick="showRecipe('avocado-toast')">Avocado Toast</a>
-                            <a href="#" onclick="showRecipe('granola-yogurt')">Granola com Iogurte</a>
-                            <a href="#" onclick="showRecipe('smoothie-bowl')">Smoothie Bowl</a>
-                        </div>
-                    </div>
-                    <div class="sub-dropdown">
-                        <a href="#" onclick="event.preventDefault(); toggleSubMenu('saltyCakes')">Bolos Salgados</a>
-                        <div id="saltyCakes" class="sub-dropdown-content">
-                            <a href="#" onclick="showRecipe('pao-de-queijo')">Pão de Queijo</a>
-                            <a href="#" onclick="showRecipe('torta-de-frango')">Torta de Frango</a>
-                            <a href="#" onclick="showRecipe('croissant-recheado')">Croissant Recheado</a>
-                        </div>
-                    </div>
-                    <div class="sub-dropdown">
-                        <a href="#" onclick="event.preventDefault(); toggleSubMenu('desserts')">Doces e Sobremesas</a>
-                        <div id="desserts" class="sub-dropdown-content">
-                            <a href="#" onclick="showRecipe('brownie')">Brownie</a>
-                            <a href="#" onclick="showRecipe('cheesecake')">Cheesecake</a>
-                            <a href="#" onclick="showRecipe('tiramisu')">Tiramisu</a>
-                        </div>
-                    </div>
-                    <div class="sub-dropdown">
-                        <a href="#" onclick="event.preventDefault(); toggleSubMenu('snacks')">Petiscos</a>
-                        <div id="snacks" class="sub-dropdown-content">
-                            <a href="#" onclick="showRecipe('coxinha')">Coxinha</a>
-                            <a href="#" onclick="showRecipe('bolinho-de-bacalhau')">Bolinho de Bacalhau</a>
-                            <a href="#" onclick="showRecipe('pastel')">Pastel</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+  <header>
+    <h1>Receitas de Café da Manhã</h1>
+    <p>Comece o seu dia com sabor e energia!</p>
+  </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Bem-vindo ao Cantinho do Café</h2>
-                <p>O lugar perfeito para começar seu dia com as melhores receitas de café da manhã</p>
-            </div>
-        </section>
+  <nav>
+    <a href="#pao">Pão Caseiro</a>
+    <a href="#panqueca">Panqueca</a>
+    <a href="#omelete">Omelete</a>
+    <a href="#vitamina">Vitamina</a>
+  </nav>
 
-        <section class="welcome-section">
-            <h2>Nosso Cantinho Especial</h2>
-            <p>No Cantinho do Café, acreditamos que um bom dia começa com um café da manhã delicioso e nutritivo. Nossa missão é compartilhar receitas incríveis que vão transformar sua rotina matinal em um momento especial.</p>
-            <p>Explore nosso menu completo ou confira nossas receitas em destaque abaixo!</p>
-        </section>
+  <div class="container">
+    <section id="pao" class="receita">
+      <h2>Pão Caseiro</h2>
+      <p><strong>Ingredientes:</strong> 500g de farinha, 10g de fermento biológico, 1 colher de sal, 300ml de água morna.</p>
+      <p><strong>Modo de preparo:</strong> Misture tudo, sove bem, deixe crescer por 1h, asse a 200°C por 35 min.</p>
+    </section>
 
-        <section>
-            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">Receitas em Destaque</h2>
-            <div class="highlight-recipes">
-                <div class="recipe-card" onclick="showRecipe('avocado-toast')">
-                    <img src="https://placehold.co/600x400" alt="Avocado toast - Torrada integral generosamente coberta com pasta de abacate, tomate cereja, sementes de gergelim e folhas verdes.">
-                    <div class="recipe-content">
-                        <h3>Avocado Toast</h3>
-                        <p>Uma torrada crocante com abacate cremoso, tomate e especiarias.</p>
-                        <button class="view-recipe-btn">Ver Receita</button>
-                    </div>
-                </div>
+    <section id="panqueca" class="receita">
+      <h2>Panqueca Americana</h2>
+      <p><strong>Ingredientes:</strong> 1 xícara de farinha, 1 ovo, 1/2 xícara de leite, 1 colher de fermento, 1 colher de açúcar.</p>
+      <p><strong>Modo de preparo:</strong> Misture os ingredientes, frite porções em frigideira untada até dourar dos dois lados.</p>
+    </section>
 
-                <div class="recipe-card" onclick="showRecipe('cappuccino')">
-                    <img src="https://placehold.co/600x400" alt="Cappuccino cremoso em xícara branca com desenho de coração na espuma, ao lado de pequenos biscoitos de canela.">
-                    <div class="recipe-content">
-                        <h3>Cappuccino Perfeito</h3>
-                        <p>O equilíbrio ideal entre café, leite vaporizado e espuma cremosa.</p>
-                        <button class="view-recipe-btn">Ver Receita</button>
-                    </div>
-                </div>
+    <section id="omelete" class="receita">
+      <h2>Omelete de Queijo</h2>
+      <p><strong>Ingredientes:</strong> 2 ovos, 1 colher de leite, sal, queijo ralado.</p>
+      <p><strong>Modo de preparo:</strong> Bata os ovos com leite e sal, despeje na frigideira e adicione queijo, cozinhe até firmar.</p>
+    </section>
 
-                <div class="recipe-card" onclick="showRecipe('granola-yogurt')">
-                    <img src="https://placehold.co/600x400" alt="Tigela de vidro com iogurte natural, granola caseira, frutas vermelhas frescas e mel escorrendo por cima.">
-                    <div class="recipe-content">
-                        <h3>Granola com Iogurte</h3>
-                        <p>Uma combinação crocante e cremosa para começar o dia com energia.</p>
-                        <button class="view-recipe-btn">Ver Receita</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <section id="vitamina" class="receita">
+      <h2>Vitamina de Banana</h2>
+      <p><strong>Ingredientes:</strong> 1 banana, 1 copo de leite, 1 colher de mel.</p>
+      <p><strong>Modo de preparo:</strong> Bata tudo no liquidificador e sirva gelado.</p>
+    </section>
+  </div>
 
-    <div id="recipeModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modalRecipeContent" class="modal-recipe-content">
-                <!-- Conteúdo dinamico será inserido aqui pelo JavaScript -->
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-links">
-            <a href="#">Sobre Nós</a>
-            <a href="#">Contato</a>
-            <a href="#">Termos de Uso</a>
-        </div>
-        <p>&copy; 2023 Cantinho do Café. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-        // Função para mostrar/esconder o menu principal
-        function toggleMenu() {
-            document.getElementById('menuDropdown').classList.toggle('show');
-        }
-        
-        // Função para mostrar/esconder um submenu específico
-        function toggleSubMenu(submenuId) {
-            document.getElementById(submenuId).classList.toggle('show');
-        }
-        
-        // Fechar menus quando clicar fora
-        window.onclick = function(event) {
-            if (!event.target.matches('.btn') && !event.target.matches('.dropdown-content a')) {
-                var dropdowns = document.getElementsByClassName('dropdown-content');
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-        
-        // Função para voltar para a página inicial
-        function goToHome() {
-            // Simula um recarregamento da página inicial
-            document.querySelector('main').style.display = 'block';
-            document.getElementById('recipeModal').style.display = 'none';
-        }
-        
-        // Função para mostrar uma receita
-        function showRecipe(recipeId) {
-            document.getElementById('menuDropdown').classList.remove('show');
-            
-            var recipeContent = document.getElementById('modalRecipeContent');
-            recipeContent.innerHTML = '';
-            
-            switch(recipeId) {
-                case 'chocolate-quente':
-                    recipeContent.innerHTML = `
-                        <h2>Chocolate Quente Cremoso</h2>
-                        <img src="https://placehold.co/800x500" alt="Chocolate quente cremoso em caneca de porcelana branca com marshmallows derretendo na superfície e pau de canela como decoração.">
-                        
-                        <div class="ingredients">
-                            <h3>Ingredientes (1 porção)</h3>
-                            <ul>
-                                <li>200ml de leite integral</li>
-                                <li>40g de chocolate meio amargo picado</li>
-                                <li>10g de chocolate em pó</li>
-                                <li>1 colher de sopa de açúcar (ou a gosto)</li>
-                                <li>1 pitada de sal</li>
-                                <li>Marshmallows ou chantilly para decorar (opcional)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="instructions">
-                            <h3>Modo de Preparo</h3>
-                            <ol>
-                                <li>Em uma panela pequena, leve o leite para aquecer em fogo médio.</li>
-                                <li>Antes de ferver, adicione os chocolates picado e em pó, mexendo constantemente até derreter completamente.</li>
-                                <li>Adicione o açúcar e o sal, continue mexendo até homogeneizar.</li>
-                                <li>Bata com um mixer ou batedor de arame para criar espuma (opcional).</li>
-                                <li>Sirva imediatamente em uma caneca, decorando com marshmallows ou chantilly.</li>
-                                <li>Pode finalizar com raspas de chocolate ou canela em pó se desejar.</li>
-                            </ol>
-                            <p><strong>Tempo de preparo:</strong> 10 minutos</p>
-                        </div>
-                    `;
-                    break;
-                    
-                case 'cappuccino':
-                    recipeContent.innerHTML = `
-                        <h2>Cappuccino Perfeito</h2>
-                        <img src="https://placehold.co/800x500" alt="Cappuccino perfeito servido em xícara branca com espuma cremosa e desenho de coração feito com canela polvilhada.">
-                        
-                        <div class="ingredients">
-                            <h3>Ingredientes (1 porção)</h3>
-                            <ul>
-                                <li>1 dose de café expresso (30ml)</li>
-                                <li>100ml de leite integral gelado</li>
-                                <li>Açúcar ou adoçante a gosto (opcional)</li>
-                                <li>Canela em pó ou cacau para polvilhar</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="instructions">
-                            <h3>Modo de Preparo</h3>
-                            <ol>
-                                <li>Prepare uma dose de café expresso e reserve.</li>
-                                <li>Em uma panela ou usando um vaporizador de leite, esquente o leite até cerca de 60°C (sem ferver).</li>
-                                <li>Use um mixer ou batedeira para criar espuma com o leite até que dobre de volume.</li>
-                                <li>Em uma xícara de cappuccino, coloque o café expresso primeiro.</li>
-                                <li>Derrame cuidadosamente o leite vaporizado, deixando a espuma por último.</li>
-                                <li>Com uma colher, distribua a espuma por cima e pode fazer desenhos com canela ou cacau.</li>
-                                <li>Sirva imediatamente.</li>
-                            </ol>
-                            <p><strong>Tempo de preparo:</strong> 5 minutos</p>
-                            <p><strong>Dica:</strong> Para um cappuccino mais cremoso, use leite com maior teor de gordura.</p>
-                        </div>
-                    `;
-                    break;
-                    
-                case 'avocado-toast':
-                    recipeContent.innerHTML = `
-                        <h2>Avocado Toast</h2>
-                        <img src="https://placehold.co/800x500" alt="Avocado toast sobre prato de madeira, com abacate em fatias, tomate cereja, sementes de gergelim e pimenta do reino moída na hora.">
-                        
-                        <div class="ingredients">
-                            <h3>Ingredientes (1 porção)</h3>
-                            <ul>
-                                <li>1 fatia de pão artesanal ou integral (torrada)</li>
-                                <li>½ abacate maduro</li>
-                                <li>1 colher de chá de azeite de oliva extra virgem</li>
-                                <li>Suco de ½ limão</li>
-                                <li>Sal e pimenta do reino a gosto</li>
-                                <li>Tomate cereja fatiado (opcional)</li>
-                                <li>Sementes de gergelim ou chia (opcional)</li>
-                                <li>Folhas de rúcula ou manjericão (opcional)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="instructions">
-                            <h3>Modo de Preparo</h3>
-                            <ol>
-                                <li>Toste o pão até ficar crocante por fora.</li>
-                                <li>Em uma tigela pequena, amasse o abacate com um garfo, adicionando o suco de limão e temperando com sal e pimenta.</li>
-                                <li>Espalhe a pasta de abacate sobre a torrada.</li>
-                                <li>Regue com azeite de oliva e decore com os ingredientes opcionais de sua preferência.</li>
-                                <li>Polvilhe as sementes por cima se desejar.</li>
-                                <li>Sirva imediatamente.</li>
-                            </ol>
-                            <p><strong>Tempo de preparo:</strong> 5 minutos</p>
-                            <p><strong>Variações:</strong> Pode adicionar um ovo pochê por cima ou queijo feta para um sabor diferente.</p>
-                        </div>
-                    `;
-                    break;
-                    
-                // Mais receitas podem ser adicionadas aqui seguindo o mesmo padrão
-                default:
-                    recipeContent.innerHTML = '<h2>Receita não encontrada</h2><p>Nos desculpe, esta receita não está disponível no momento.</p>';
-            }
-            
-            document.getElementById('recipeModal').style.display = 'block';
-        }
-        
-        // Função para fechar o modal
-        function closeModal() {
-            document.getElementById('recipeModal').style.display = 'none';
-        }
-        
-        // Fechar modal ao clicar fora do conteúdo
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('recipeModal')) {
-                closeModal();
-            }
-        }
-    </script>
+  <footer>
+    &copy; 2025 Receitas de Café da Manhã | Desenvolvido por Giovanna
+  </footer>
 </body>
 </html>
