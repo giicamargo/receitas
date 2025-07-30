@@ -41,7 +41,7 @@
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-8 md:mb-0">
                 <h2 class="text-3xl md:text-4xl font-bold text-amber-800 mb-4">Comece seu dia com energia!</h2>
-                <p class="text-lg text-amber-900 mb-6">Descubra receitas deliciosas e nutritivas para transformar seu café da manhã em um momento especial.</p>
+                <p class="text-lg text-amber-900 mb-6">É um prazer enorme ter você aqui. Preparamos este espaço com muito carinho para que se sinta em casa e aproveite cada momento. Sirva-se e relaxe! Descubra receitas deliciosas e nutritivas para transformar seu café da manhã em um momento especial.</p>
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
@@ -416,20 +416,17 @@
                 instructionsList.appendChild(li);
             });
             
-            // Show modal
             modal.classList.remove('invisible');
             modal.classList.add('opacity-100');
             document.body.style.overflow = 'hidden';
         }
 
-        // Close modal
         closeModal.addEventListener('click', () => {
             modal.classList.remove('opacity-100');
             modal.classList.add('invisible');
             document.body.style.overflow = 'auto';
         });
 
-        // Print recipe
         printButton.addEventListener('click', () => {
             window.print();
         });
