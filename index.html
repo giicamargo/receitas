@@ -70,6 +70,7 @@
                         <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-amber-500 hover:text-white transition" data-category="doces">Doces</button>
                         <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-amber-500 hover:text-white transition" data-category="veganas">Veganas</button>
                     <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-amber-500 hover:text-white transition" data-category="Bebidas">Bebidas</button>
+                    <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-amber-500 hover:text-white transition" data-category="Bebidas Quentes">Bebidas Quentes</button>
                     </div>
                 </div>
             </div>
@@ -328,10 +329,36 @@
                     "Se desejar, adicione um ovo poché por cima.",
                     "Polvilhe com pimenta vermelha em flocos para servir."
                 ]
+            },
+             {
+                id: 8,
+                title: "Chocolate Quente",
+                image: "https://www.sabornamesa.com.br/media/k2/items/cache/e9fe550ba3c0c201d69e3bc0a455b623_XL.jpg",
+                time: "20 min",
+                difficulty: "Fácil",
+                servings: "1 porção",
+                category: "Bebidas Quentes",
+                ingredients: [
+                    "2 xícaras de chá de leite",
+                    "2 colheres de sopa de amido de milho",
+                    "3 colheres de sopa de chocolate em pó",
+                    "4 colheres de sopa de açúcar",
+                    "1  pau de canela",
+                    "1 caixa de creme de leite (200 gramas)"
+                ],
+                instructions: [
+                    "Utilizamos 4 colheres de sopa de açúcar. Essa medida pode ser substituída de acordo com o seu gosto. Algumas marcas de chocolate em pó possuem açúcar em sua composição, nesse caso, cuidado para não deixar a bebida muito doce;",
+                    "Dissolva o amido de milho em um pouquinho de leite (quantidade suficiente para incorporar bem os dois ingredientes). Em um liquidificador, coloque a misturinha diluída, o restante de leite, o chocolate em pó e o açúcar. Bata por 2 minutos;",
+                    "A mistura ficará homogênea e espumosa. Despeje todo o líquido em uma leiteira ou panela alta;",
+                    "Espalhe a mistura de abacate sobre o pão torrado.",
+                    "Leve o chocolate quente ao fogo baixo. Com uma colher ou espátula, misture bem, em seguida, adicione a canela e continue mexendo durante todo o processo;",
+                    "Assim que o chocolate quente levantar fervura, despeje o creme de leite. Continue mexendo para não grudar no fundo da panela ou queimar;"
+                    "Retire a canela em pau e cozinhe o chocolate quente por mais 1 minuto, mexendo sempre, para não ficar com gosto de amido cru. Se quiser uma consistência mais líquida, adicione um pouquinho de leite;"
+                    "Esta pronto o seu delicioso chocolate quente!"
+                ]
             }
         ];
 
-        // DOM elements
         const recipesContainer = document.getElementById('recipes-container');
         const categoryButtons = document.querySelectorAll('.category-btn');
         const modal = document.getElementById('recipe-modal');
