@@ -80,8 +80,8 @@
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-serif italic font-bold mb-4">Sobre</h2>
         <p class="mb-8 max-w-2xl mx-auto">
-            Agradecemos sua visita!<br>
-            Ficamos muito felizes em ter você por aqui. Esperamos que tenha encontrado o que procurava e que volte sempre. Nosso cantinho está sempre aberto para você!
+            <strong>Agradecemos sua visita!<br>
+            Ficamos muito felizes em ter você por aqui. Esperamos que tenha encontrado o que procurava e que volte sempre. Nosso cantinho está sempre aberto para você!</strong>
         </p>
         <p class="mb-8 max-w-2xl mx-auto"><strong>Criadoras: Giovanna Vieira e Rebeca Mendes.</strong></p>
         
@@ -103,7 +103,7 @@
     const message = document.getElementById('feedbackMsg');
 
     form.addEventListener('submit', function (e) {
-        e.preventDefault(); // impede o recarregamento da página
+        e.preventDefault();
         if (input.value.trim() !== "") {
             message.classList.remove('hidden');
             input.value = "";
