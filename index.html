@@ -51,11 +51,6 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center mb-8">
                 <div class="w-full md:w-1/2 mb-4 md:mb-0">
-                    <div class="relative">
-                        <input type="text" placeholder="Buscar receitas..." 
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg pl-10 focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
-                    </div>
                 </div>
                 <div class="w-full md:w-auto">
                     <div class="flex flex-wrap gap-2">
@@ -414,7 +409,6 @@
         
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Update active button
                 categoryButtons.forEach(btn => btn.classList.remove('active-category'));
                 button.classList.add('active-category');
                 
@@ -458,7 +452,6 @@
                 recipesContainer.appendChild(recipeCard);
             });
 
-            // Add event listeners to view recipe buttons
             document.querySelectorAll('.view-recipe-btn').forEach(button => {
                 button.addEventListener('click', () => {
                     const recipeId = parseInt(button.dataset.id);
@@ -468,7 +461,6 @@
             });
         }
 
-        // Get color based on difficulty
         function getDifficultyColor(difficulty) {
             switch(difficulty) {
                 case 'Muito Fácil': return 'text-green-600';
@@ -479,7 +471,6 @@
             }
         }
 
-        // Open recipe modal
         function openRecipeModal(recipe) {
             document.getElementById('modal-title').textContent = recipe.title;
             document.getElementById('modal-image').src = recipe.image;
@@ -520,7 +511,6 @@
             window.print();
         });
 
-        // Close modal when clicking outside
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('opacity-100');
