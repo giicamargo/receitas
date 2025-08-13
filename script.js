@@ -30,13 +30,10 @@ const recipes = [
             "caldo de galinha a gosto"
         ],
         instructions: [
-            "Amasse a banana em uma tigela até ficar bem pastosa.",
-            "Adicione o ovo e misture bem.",
-            "Incorpore a farinha de aveia, canela e fermento em pó.",
-            "Aqueça uma frigideira antiaderente em fogo médio.",
-            "Despeje pequenas porções da massa na frigideira.",
-            "Cozinhe por 2-3 minutos de cada lado até dourar.",
-            "Sirva com mel por cima, se desejar."
+            "Bata os 2 ovos, pode ser na batedeira ou não.",
+            "Após ter batido bem, coloque-o na frigideira já untada com óleo, acrescente o sal, o presunto picado em quadradinhos e as duas fatias de queijo (não precisa picar o queijo).",
+            "Coloque os temperos a gosto, espere ficar firme, e vire o omelete.",
+            "Está pronto um omelete delicioso, bom apetite!",
         ]
     },
     {
@@ -72,17 +69,20 @@ const recipes = [
         servings: "10 porção",
         category: "doces",
         ingredients: [
-            "2 ovos",
-            "1 punhado de espinafre fresco",
-            "1 colher de sopa de queijo ralado",
-            "Sal e pimenta a gosto",
-            "1 colher de chá de azeite"
+            "3 ovos",
+            "2 xícaras (chá) de farinha de trigo",
+            "1/2 xícara (chá) de óleo",
+            "1 pitada de sal",
+            "1 e 1/2 xícara (chá) de açúcar",
+            "1 xícara (chá) de chocolate em pó ou achocolatado",
+            "1 colher (sopa) de fermento em pó",
+            "1 xícara (chá) de água quente"
         ],
         instructions: [
-            "Lave e pique o espinafre.",
-            "Bata os ovos e tempere com sal e pimenta.",
-            "Aqueça o azeite e refogue o espinafre por 1 minuto.",
-            "Despeje os ovos e polvilhe queijo ralado.",
+            "Em um liquidificador, bata os ovos, o açúcar, o óleo, o achocolatado e a farinha de trigo.",
+            "Despeje a massa em uma tigela e adicione a água quente e o fermento, misturando bem.",
+            "Despeje a massa em uma forma untada e asse em forno médio-alto (200° C), preaquecido, por 40 minutos.",
+            "Desenforme ainda quente.",
             "Cozinhe até firmar e sirva."
         ]
     },
@@ -95,41 +95,45 @@ const recipes = [
         servings: "1 porção",
         category: "rapidas",
         ingredients: [
-            "1 polpa de açaí congelado",
-            "1 banana",
-            "2 colheres de sopa de granola",
-            "1 colher de sopa de mel",
-            "1 colher de sopa de leite em pó (opcional)"
+            "100 g de frango desfiado pré-cozido",
+            "1/2 tomate picado",
+            "1/2 lata de milho verde",
+            "sal a gosto",
+            "pão de forma",
+            "1/2 cebola pequena picada",
+            "1 cenoura pequena ralada",
+            "salsinha e cebolinha a gosto",
+            "maionese light a gosto"
         ],
         instructions: [
-            "Bata o açaí até ficar cremoso.",
-            "Despeje em uma tigela.",
-            "Adicione banana, granola e mel.",
-            "Sirva imediatamente."
+            "Refogue o frango desfiado com azeite, alho e cebola em uma panela.",
+            "Misture a cebola e o tomate picados, a cenoura ralada, o milho, a salsa, a cebolinha e o sal.",
+            "Adicione maionese até a obter a consistência desejada do recheio.",
+            "Cremosa ou mais consistente, como você preferir.",
+            "Para concluir, coloque o recheio entre 2 fatias de pão de forma."
         ]
     },
     {
         id: 5,
-        title: "Tofu Mexido",
-        image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+        title: "Chocolate Quente",
+        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmonologosdoarroz.com.br%2Fchocolate-quente-cremoso-facil%2F&psig=AOvVaw1j-OzvckZ1ucSh6ZydinKh&ust=1755214974858000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMDVhtf7iI8DFQAAAAAdAAAAABAE",
         time: "10 min",
         difficulty: "Médio",
         servings: "2 porções",
         category: "veganas",
         ingredients: [
-            "200g de tofu firme",
-            "1 colher de sopa de azeite",
-            "1/2 cebola picada",
-            "1/2 pimentão vermelho picado",
-            "1 colher de chá de cúrcuma",
-            "Sal e pimenta a gosto",
-            "Salsinha picada para decorar"
+            "2 xícaras (chá) de leite",
+            "3 colheres (sopa) de chocolate em pó",
+            "1 canela em pau",
+            "1 colher (sopa) de amido de milho",
+            "4 colheres (sopa) de açúcar",
+            "1 caixinha de creme de leite"
         ],
         instructions: [
-            "Esmague o tofu.",
-            "Refogue cebola e pimentão.",
-            "Adicione o tofu e cúrcuma.",
-            "Tempere, cozinhe mais 5 minutos e sirva."
+            "Em um liquidificador, bata o leite, o amido de milho, o chocolate em pó e o açúcar.",
+            "Despeje a mistura em uma panela com a canela e leve ao fogo baixo, mexendo sempre até ferver.",
+            "Desligue, adicione o creme de leite e mexa bem até obter uma mistura homogênea.",
+            "Retire a canela e sirva quente."
         ]
     }
 ];
@@ -149,7 +153,7 @@ function displayRecipes(recipesToDisplay) {
         recipeCard.className = 'recipe-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300';
         recipeCard.innerHTML = `
             <img src="${recipe.image}" alt="${recipe.title}" class="w-full h-48 object-cover">
-            <div class="p-4">
+            <div class="p-4">https
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="text-lg font-bold text-amber-800">${recipe.title}</h3>
                     <span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">${recipe.category.charAt(0).toUpperCase() + recipe.category.slice(1)}</span>
