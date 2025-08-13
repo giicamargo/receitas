@@ -16,7 +16,7 @@ const recipes = [
     {
         id: 1,
         title: "Omelete",
-        image: "://www.kitano.com.br/wp-content/uploads/2019/08/SSP_2014-Ometele-de-frios-com-cebolinha-e-salsa-1.jpg",
+        image: "https://www.kitano.com.br/wp-content/uploads/2019/08/SSP_2014-Ometele-de-frios-com-cebolinha-e-salsa-1.jpg",
         time: "20 min",
         difficulty: "Fácil",
         servings: "1 porções",
@@ -153,7 +153,7 @@ function displayRecipes(recipesToDisplay) {
         recipeCard.className = 'recipe-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300';
         recipeCard.innerHTML = `
             <img src="${recipe.image}" alt="${recipe.title}" class="w-full h-48 object-cover">
-            <div class="p-4">https
+            <div class="p-4">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="text-lg font-bold text-amber-800">${recipe.title}</h3>
                     <span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">${recipe.category.charAt(0).toUpperCase() + recipe.category.slice(1)}</span>
