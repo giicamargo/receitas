@@ -16,7 +16,7 @@ const recipes = [
     {
         id: 1,
         title: "Omelete",
-        image: "https://www.kitano.com.br/wp-content/uploads/2019/08/SSP_2014-Ometele-de-frios-com-cebolinha-e-salsa-1.jpg",
+        image: "://www.kitano.com.br/wp-content/uploads/2019/08/SSP_2014-Ometele-de-frios-com-cebolinha-e-salsa-1.jpg",
         time: "20 min",
         difficulty: "Fácil",
         servings: "1 porções",
