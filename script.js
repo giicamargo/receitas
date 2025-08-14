@@ -139,12 +139,12 @@ const recipes = [
     {
         id: 6,
         title: "Vitamina",
-        image: "https://monologosdoarroz.com.br/wp-content/uploads/2025/05/chocolate-quente-cremoso-blog-monologos-do-arroz.webp",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHr5cTEkMp0_zNZVlDg1eBskZnygXFXyKcc1ZWIhzIeuTR14GLu9BEIevb5lvXlMUR6LI&usqp=CAU",
          time: "20 min",
         difficulty: "Fácil",
         servings: "1 porções",
         category: "Bebidas",
-         category: "Saudaveis",
+
         ingredients: [
             "2 copos de leite",
             "1 banana media",
