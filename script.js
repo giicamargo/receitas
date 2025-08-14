@@ -135,6 +135,30 @@ const recipes = [
             "Desligue, adicione o creme de leite e mexa bem até obter uma mistura homogênea.",
             "Retire a canela e sirva quente."
         ]
+    },
+    {
+        id: 6,
+        title: "Vitamina",
+        image: "https://monologosdoarroz.com.br/wp-content/uploads/2025/05/chocolate-quente-cremoso-blog-monologos-do-arroz.webp",
+         time: "20 min",
+        difficulty: "Fácil",
+        servings: "1 porções",
+        category: "Bebidas",
+         category: "Saudaveis",
+        ingredients: [
+            "2 copos de leite",
+            "1 banana media",
+            "Meia porção de morangos (+ 6)",
+            "1 colher de mel",
+            "3 colheres de sopa de açúcar",
+            "1/2 mamão",
+            "2 colheres de aveia em flocos"
+        ],
+        instructions: [
+            "Bater tudo no liquidificador e acrescentar gelo picado.",
+            "Beber em seguida.",
+            "Essa vitamina subistitui o café da manhã e é muito saudavel!."
+        ]
     }
 ];
 
