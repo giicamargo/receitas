@@ -159,6 +159,29 @@ const recipes = [
             "Beber em seguida.",
             "Essa vitamina subistitui o café da manhã e é muito saudavel!."
         ]
+    },
+    {
+        id: 7,
+        title: "Cappucino",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHr5cTEkMp0_zNZVlDg1eBskZnygXFXyKcc1ZWIhzIeuTR14GLu9BEIevb5lvXlMUR6LI&usqp=CAU",
+         time: "20 min",
+        difficulty: "Fácil",
+        servings: "15 porções",
+        category: "Bebidas quentes",
+
+        ingredients: [
+            "50 g de café solúvel",
+            "3 colheres (sopa) de chocolate em pó (não pode ser achocolatado)",
+            "1 colher (chá) de canela em pó",
+            "250 g de leite em pó (integral ou desnatado)",
+            "1 colher (chá) de bicarbonato de sódio",
+            "250 g de açúcar (ou equivalente em adoçante)"
+        ],
+        instructions: [
+            "Bater no liquidificador o café até ficar fino. Acrescentar aos outros ingredientes em uma tigela e peneirar tudo junto em outra.",
+            "A validade é de 6 meses.",
+            "Use 2 colheres de sobremesa para 1 xícara de água fervente. Sirva-se!!"
+        ]
     }
 ];
 
