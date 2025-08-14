@@ -163,7 +163,7 @@ const recipes = [
     {
         id: 7,
         title: "Cappucino",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHr5cTEkMp0_zNZVlDg1eBskZnygXFXyKcc1ZWIhzIeuTR14GLu9BEIevb5lvXlMUR6LI&usqp=CAU",
+        image: "https://sachefmio.blob.core.windows.net/fotos/cappuccino-mineiro-gelado-200ml-e3dfa819-aa88-4569-b8c7-f98742ba71c6.jpg",
          time: "20 min",
         difficulty: "Fácil",
         servings: "15 porções",
