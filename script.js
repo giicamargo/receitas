@@ -180,9 +180,6 @@ function getDifficultyColor(difficulty) {
 }
 
 function openRecipeModal(recipe) {
-    document.getElementById('modal-title').textContent = recipe.title;
-    document.getElementById('modal-image').src = recipe.image;
-    document.getElementById('modal-image').alt = recipe.title;
     document.getElementById('modal-category').textContent = recipe.category.charAt(0).toUpperCase() + recipe.category.slice(1);
     
     const ingredientsList = document.getElementById('modal-ingredients');
