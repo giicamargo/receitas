@@ -93,7 +93,7 @@ const recipes = [
         time: "5 min",
         difficulty: "Muito Fácil",
         servings: "1 porção",
-        category: "rapidas",
+        category: "Saudaveis",
         ingredients: [
             "100 g de frango desfiado pré-cozido",
             "1/2 tomate picado",
@@ -120,7 +120,7 @@ const recipes = [
         time: "10 min",
         difficulty: "Médio",
         servings: "2 porções",
-        category: "veganas",
+        category: "bebidas quentes",
         ingredients: [
             "2 xícaras (chá) de leite",
             "3 colheres (sopa) de chocolate em pó",
