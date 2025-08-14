@@ -120,7 +120,7 @@ const recipes = [
          time: "20 min",
         difficulty: "Fácil",
         servings: "1 porções",
-        category: "Saudáveis",
+        category: "Bebidas quentes",
         ingredients: [
             "2 xícaras (chá) de leite",
             "3 colheres (sopa) de chocolate em pó",
