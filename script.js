@@ -17,6 +17,9 @@ const recipes = [
         id: 1,
         title: "Omelete",
         image: "https://www.kitano.com.br/wp-content/uploads/2019/08/SSP_2014-Ometele-de-frios-com-cebolinha-e-salsa-1.jpg",
+        time: "20 min",
+        difficulty: "Fácil",
+        servings: "1 porções",
         category: "Saudáveis",
         ingredients: [
             "2 ovos",
@@ -37,6 +40,9 @@ const recipes = [
         id: 2,
         title: "Café gelado",
         image: "https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/6ce10070ca590097bf7241c8cd5951d9.jpg?itok=u4POTa93",
+        time: "20 min",
+        difficulty: "Fácil",
+        servings: "1 porções",
         category: "Bebidas",
         ingredients: [
             "2 colheres de sopa de café solúvel",
@@ -58,6 +64,9 @@ const recipes = [
         id: 3,
         title: "Bolo de chocolate",
         image: "https://i.ytimg.com/vi/s9FGma9ORuQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCwyx0GJtiz6X8YCRGX5EAlN7U_oQ",
+        time: "20 min",
+        difficulty: "Fácil",
+        servings: "1 porções",
         category: "Doces",
         ingredients: [
             "3 ovos",
@@ -81,7 +90,10 @@ const recipes = [
         id: 4,
         title: "Sanduíche Natural",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCdVM9EBAzWhcCHK6NUL_uQwXTvBdWMRulXgXFtgaBFEFZTYQuFSJfb7lu&s=10",
-         category: "Saudaveis",
+        time: "20 min",
+        difficulty: "Fácil",
+        servings: "1 porções",
+        category: "Saudáveis",
         ingredients: [
             "100 g de frango desfiado pré-cozido",
             "1/2 tomate picado",
@@ -105,7 +117,10 @@ const recipes = [
         id: 5,
         title: "Chocolate Quente",
         image: "https://monologosdoarroz.com.br/wp-content/uploads/2025/05/chocolate-quente-cremoso-blog-monologos-do-arroz.webp",
-         category: "Bebidas Quentes",
+         time: "20 min",
+        difficulty: "Fácil",
+        servings: "1 porções",
+        category: "Saudáveis",
         ingredients: [
             "2 xícaras (chá) de leite",
             "3 colheres (sopa) de chocolate em pó",
@@ -180,6 +195,12 @@ function getDifficultyColor(difficulty) {
 }
 
 function openRecipeModal(recipe) {
+    document.getElementById('modal-title').textContent = recipe.title;
+    document.getElementById('modal-image').src = recipe.image;
+    document.getElementById('modal-image').alt = recipe.title;
+    document.getElementById('modal-time').textContent = recipe.time;
+    document.getElementById('modal-difficulty').textContent = recipe.difficulty;
+    document.getElementById('modal-servings').textContent = recipe.servings;
     document.getElementById('modal-category').textContent = recipe.category.charAt(0).toUpperCase() + recipe.category.slice(1);
     
     const ingredientsList = document.getElementById('modal-ingredients');
