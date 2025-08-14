@@ -187,6 +187,7 @@ const recipes = [
         id: 8,
         title: "Panqueca Americana",
         image: "https://jpimg.com.br/uploads/2022/11/5-receitas-faceis-de-panqueca-americana.jpg",
+        tempo: "20 minutos",
         difficulty: "Fácil",
         servings: "15 porções",
         category: "Doces",
