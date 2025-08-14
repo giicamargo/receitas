@@ -182,6 +182,33 @@ const recipes = [
             "A validade é de 6 meses.",
             "Use 2 colheres de sobremesa para 1 xícara de água fervente. Sirva-se!!"
         ]
+    },
+    {
+        id: 8,
+        title: "Panqueca Americana",
+        image: "https://jpimg.com.br/uploads/2022/11/5-receitas-faceis-de-panqueca-americana.jpg",
+        difficulty: "Fácil",
+        servings: "15 porções",
+        category: "Doces",
+
+        ingredients: [
+            "1 e 1/4 xícara (chá) de farinha de trigo",
+            "3 colheres (chá) de fermento em pó",
+            "1 xícara (chá) de leite",
+            "pitada de sal",
+            "1 colher (sopa) de açúcar",
+            "2 ovos levemente batidos",
+            "2 colheres (sopa) de manteiga derretida",
+            "óleo"
+        ],
+        instructions: [
+            "Misture em um recipiente: a farinha, o açúcar, o fermento e o sal.",
+            "Em outro recipiente, misture os ovos, o leite e a manteiga.",
+            "Acrescente os líquidos aos secos, sem misturar em excesso.",
+            "O ponto da massa não deve ser muito líquido, deve escorrer lentamente.",
+            "Aqueça e unte a frigideira com óleo, coloque a massa no centro, cerca de 1/4 xícara por panqueca.",
+            "Vire a massa para assar do outro lado e está pronto!"
+        ]
     }
 ];
 
