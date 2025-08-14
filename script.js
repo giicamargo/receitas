@@ -20,7 +20,7 @@ const recipes = [
         time: "20 min",
         difficulty: "Fácil",
         servings: "1 porções",
-        category: "Saudáveis",
+        category: "Saudaveis",
         ingredients: [
             "2 ovos",
             "1 fatia de presunto",
@@ -93,7 +93,7 @@ const recipes = [
         time: "20 min",
         difficulty: "Fácil",
         servings: "1 porções",
-        category: "Saudáveis",
+        category: "Saudaveis",
         ingredients: [
             "100 g de frango desfiado pré-cozido",
             "1/2 tomate picado",
