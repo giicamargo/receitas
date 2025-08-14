@@ -63,7 +63,7 @@ const recipes = [
     {
         id: 3,
         title: "Bolo de chocolate",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFoFYy5QiD_uYiCIjnNklTDFcXwD7ogq9CwA&s",
+        image: "https://i.ytimg.com/vi/s9FGma9ORuQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCwyx0GJtiz6X8YCRGX5EAlN7U_oQ",
         time: "30 min",
         difficulty: "Médio",
         servings: "10 porção",
