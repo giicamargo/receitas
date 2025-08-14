@@ -116,7 +116,7 @@ const recipes = [
     {
         id: 5,
         title: "Chocolate Quente",
-        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmonologosdoarroz.com.br%2Fchocolate-quente-cremoso-facil%2F&psig=AOvVaw1j-OzvckZ1ucSh6ZydinKh&ust=1755214974858000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMDVhtf7iI8DFQAAAAAdAAAAABAE",
+        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmonologosdoarroz.com.br%2Fchocolate-quente-cremoso-facil%2F&psig=AOvVaw1MWxiB4CqH5lAvokP72YFb&ust=1755216242322000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCLi8y-eAiY8DFQAAAAAdAAAAABAU",
         time: "10 min",
         difficulty: "Médio",
         servings: "2 porções",
